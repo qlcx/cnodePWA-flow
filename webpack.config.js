@@ -15,7 +15,7 @@ module.exports = {
     publicPath: '/',
   },
 
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
 
   devServer: {
     hot: true,
@@ -31,17 +31,17 @@ module.exports = {
       exclude: /node_modules/
     },{
       test: /\.css$/,
-      exclude: '/src/styles',
+      exclude: resolve(__dirname, 'src/styles'),
       use: [
         'style-loader',
-        'css-loader?modules&localIdentName=[name]___[local]?sourceMap=true',
+        'css-loader?modules&localIdentName=[name]___[local]?sourceMap',
       ]
-    }, {
+    },{
       test: /\.css$/,
-      include: '/src/styles',
+      include: resolve(__dirname, 'src/styles'),
       use: [
         'style-loader',
-        'css-loader?sourceMap=true',
+        'css-loader?sourceMap'
       ]
     }]
   },

@@ -16,12 +16,6 @@ const render = Component => {
 
 render(Router)
 
-// declare var module : {
-//   hot: {
-//     accept(path:string, callback:() => void): void
-//   }
-// }
-
 if(module.hot) {
   module.hot.accept('./router', () => {
     const NewRouter = require('./router').default
