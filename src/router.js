@@ -2,6 +2,7 @@ import React from 'react'
 import reduxThunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { withRouter} from 'react-router-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Layout from './layouts/Layout'
@@ -19,7 +20,7 @@ const router = () => (
     <Layout>
       <Router>
         <Switch>
-          <Route exact path='/' component={HomePage} />
+          <Route exact path='/' component={withRouter(HomePage)} />
         </Switch>
       </Router>
     </Layout>
