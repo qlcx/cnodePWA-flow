@@ -11,6 +11,7 @@
   background: #fff;
   font-size: 1.6rem;
   color: #292b2c;
+  border-radius: .25rem;
 }
 .listGroupItem {
   display: flex;
@@ -18,7 +19,7 @@
   align-items: center;
   position: relative;
   padding: 1rem 1.25rem;
-  border-bottom: solid 1px rgba(0,0,0,.125);
+  border-bottom: solid 1px #f0f0f0;
   margin-bottom: -1px;
 }
 .topicTitle {
