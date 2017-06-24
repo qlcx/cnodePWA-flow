@@ -2,6 +2,9 @@
 import axios from 'axios'
 import Promise from 'bluebird'
 
+type GetResObj = {success: string, data: any[] | any}
+type ResHttp = {data: GetResObj}
+
 // http请求前缀
 const httpPrefix: string = 'https://cnodejs.org/api/v1'
 
@@ -11,8 +14,8 @@ const fetchData = (): void => {}
 fetchData.get = (url: string) => {
   const reqURL: string = `${httpPrefix}${url}`
 
-  axios.get(reqURL).then((res: {data: {success: string, data: any[]}}) => {
-    let resData: {success: string, data: any[]} = res.data
+  axios.get(reqURL).then((res: ResHttp) => {
+    let resData: GetResObj = res.data
 
     if (resData.success) {
       return Promise.resolve(resData.data)
