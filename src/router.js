@@ -9,6 +9,7 @@ import Layout from './layouts/Layout'
 import HomePage from './views/HomePage'
 
 import './styles/main.css'
+import './styles/normalize.css'
 
 import rootReducer from './redux'
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)

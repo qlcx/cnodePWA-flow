@@ -8,15 +8,14 @@ type ResHttp = {data: GetResObj}
 // http请求前缀
 const httpPrefix: string = 'https://cnodejs.org/api/v1'
 
-const fetchData = (): void => {}
+export default function fetchData(): void {}
 
 // get
 fetchData.get = (url: string) => {
   const reqURL: string = `${httpPrefix}${url}`
 
-  axios.get(reqURL).then((res: ResHttp) => {
+  return axios.get(reqURL).then((res: ResHttp) => {
     let resData: GetResObj = res.data
-
     if (resData.success) {
       return Promise.resolve(resData.data)
     } else {

@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from 'react'
 
 import styles from './Layout.css'
@@ -6,7 +5,7 @@ import styles from './Layout.css'
 const Layout = (props: Object) => {
   return(
     <main>
-      <section className={styles.header}>
+      <div className={styles.header}>
         <img className={styles.imgLogo} src='https://cnodejs.org/public/images/cnodejs_light.svg' />
         <nav className={styles.headerNav}>
           <ul>
@@ -20,14 +19,14 @@ const Layout = (props: Object) => {
             <li><a href='#'>登录</a></li>
           </ul>
         </nav>
-      </section>
+      </div>
       
-      <section className={styles.container}>
+      <div className={styles.container}>
         {props.children}
-      </section>
+      </div>
       
-      <section>
-      </section>
+      <div>
+      </div>
     </main>
   )
 }

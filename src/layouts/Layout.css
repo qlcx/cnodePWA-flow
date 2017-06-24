@@ -5,28 +5,37 @@ main {
 
 /* 页面头部 */
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   background: #444;
   height: 50px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0 3.2em;
 }
 
 .headerNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   width: 100%;
 }
-ul {
+.headerNav > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 0px;
 }
-ul > li {
+.headerNav > ul > li {
   list-style: none;
   margin-left: 20px;
 }
-ul > li > a {
-  text-decoration: none;
+.headerNav > ul > li > a {
   color: #fff;
   font-size: 1.4rem;
 }
@@ -42,4 +51,6 @@ ul > li > a {
 .container {
   background: #e1e1e1;
   height: 100vh;
+  width: 90vw;  
+  margin: 15px auto;
 }
