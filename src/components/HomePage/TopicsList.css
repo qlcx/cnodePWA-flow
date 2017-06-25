@@ -22,6 +22,15 @@
   border-bottom: solid 1px #f0f0f0;
   margin-bottom: -1px;
 }
+
+/* 话题元素 */
+/* 头像 */
+.avatar {
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem;
+}
+/* 标题 */
 .topicTitle {
   max-width: 70%;  
   white-space: nowrap;
@@ -29,6 +38,19 @@
   overflow: hidden;
   padding: .75rem 0;
   color: #292b2c;  
+}
+/* 标签 */
+.topicTag {
+  font-size: 1.2rem;
+  padding: 2px 4px;
+  margin-right: .5rem;
+  border-radius: .25rem;  
+  background: #e5e5e5;
+  color: #999;
+}
+.topicTagTop {
+  background: #80bd01;
+  color: #fff;
 }
 
 @media(max-width: 960px) {
