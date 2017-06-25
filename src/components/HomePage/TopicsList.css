@@ -52,6 +52,11 @@
   background: #80bd01;
   color: #fff;
 }
+/* 最后一次回答 */
+.topicLastReply {
+  float: right;
+  
+}
 
 @media(max-width: 960px) {
   .listGroup {
