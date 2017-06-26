@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import TopicsList from '../components/HomePage/TopicsList'
+import PaginationComponent from '../components/BasicComponent/PaginationComponent'
 
 import { actions } from './HomePageReudx'
 
@@ -21,7 +22,10 @@ class MainPage extends Component {
   render() {
     const { state } = this.props
 
-    return <TopicsList {...state} />
+    return <div>
+      <TopicsList {...state} />
+      <PaginationComponent />
+    </div>
   }
 }
 

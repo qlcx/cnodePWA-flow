@@ -1,0 +1,26 @@
+.root {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: .1rem;
+}
+.pageFooter {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  font-size: 1.4rem;
+}
+.pageNum {
+  padding: 4px 12px;
+  line-height: 20px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-left-width: 0;
+  color: #778087;
+  border-radius: .25rem;  
+}
+
+/* 当前页码 */
+.pageNum:focus {
+  color: #80bd01
+}
