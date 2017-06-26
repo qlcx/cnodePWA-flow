@@ -13,6 +13,7 @@ const paginationDecorator = WrappedComponent => {
       this.state = {
         whichBtnDown: '',
         pageCurrent: 1,
+        pageArr: Array(10).fill(1)
       }
     }
 

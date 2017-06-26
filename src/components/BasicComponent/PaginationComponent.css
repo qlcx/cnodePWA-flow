@@ -28,11 +28,28 @@
   color: #fff;
 }
 
-/* 前进 后退被按下 */
+/* 前进 后退 */
 .pageActionActive {
   color: #80bd01;
   border: 1px solid #80bd01;
 }
 .pageAction:hover {
+  color: #80bd01;
+}
+/* 快进 */
+.pageActionSpeedLeft::after,
+.pageActionSpeedRight::after {
+  content: '\2022\2022\2022';
+  padding: 0 6px;
+  color: #778087;  
+}
+.pageActionSpeedRight:hover::after {
+  content: '\003e\003e';
+  padding: 0 5px;
+  color: #80bd01;
+}
+.pageActionSpeedLeft:hover::after {
+  content: '\003c\003c';
+  padding: 0 5px;
   color: #80bd01;
 }

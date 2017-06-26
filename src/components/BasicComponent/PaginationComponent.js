@@ -11,7 +11,7 @@ export default class PaginationComponent extends Component {
 
   render() {
     const { paginationActionChange } = this.props
-    const { whichBtnDown } = this.props
+    const { whichBtnDown, pageArr } = this.props
 
     // 向前&向后
     let previosStyle = styles.pageAction 
@@ -22,7 +22,6 @@ export default class PaginationComponent extends Component {
       nextStyle = `${nextStyle} ${styles.pageActionActive}`
     }
 
-
     return <div className={styles.root}>
       <ul className={styles.pageFooter}>      
         <li>
@@ -30,18 +29,18 @@ export default class PaginationComponent extends Component {
             className={previosStyle} 
             onMouseDown={() => paginationActionChange('previous-down')}
             onMouseUp={() => paginationActionChange('previous-up')}>
-            ‹
+            {'<'}
           </a>
         </li>
 
-        {this.renderPageNum([1, 2, 3, 4, 5])}
+        {this.renderPageNum(pageArr)}
 
         <li>
           <a
             className={nextStyle} 
             onMouseDown={() => paginationActionChange('next-down')}
             onMouseUp={() => paginationActionChange('next-up')}>
-            ›
+            {'>'}
           </a>
         </li>
       </ul>
@@ -53,14 +52,26 @@ export default class PaginationComponent extends Component {
     const { paginationChange, pageCurrent } = this.props
 
     return pageNumRange.map((data, i) => {
+      let pageNum = i + 1
+
       let pageNumStyle = styles.pageNum
-      if (Number(pageCurrent) === i + 1) {
+      if (Number(pageCurrent) === pageNum) {
         pageNumStyle = `${pageNumStyle} ${styles.pageNumCurrent}`
+      }
+
+      if (pageNum == 5) {
+        return <a className={styles.pageActionSpeedRight}></a>
+      }
+
+      if (pageCurrent <= 5 && pageNum > 5) {
+        return <div />
+      } else if (pageCurrent <=5 && pageNum == pageNumRange[pageNumRange.length - 1]) {
+        return <a className={styles.pageActionSpeedRight}></a>
       }
       
       return <li key={i}>
         <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
-          {i+1}
+          {pageNum}
         </a>
       </li>
     })
