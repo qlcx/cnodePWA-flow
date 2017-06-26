@@ -11,7 +11,8 @@ const paginationDecorator = WrappedComponent => {
       this.paginationActionChange = this.paginationActionChange.bind(this)
 
       this.state = {
-        whichBtnDown: ''
+        whichBtnDown: '',
+        pageCurrent: 1,
       }
     }
 
@@ -27,8 +28,8 @@ const paginationDecorator = WrappedComponent => {
       }
     }
 
-    paginationChange(currentPageNum) {
-      console.log(currentPageNum)
+    paginationChange(pageNum) {
+      this.setState({ pageCurrent: pageNum })
     }
 
     render() {

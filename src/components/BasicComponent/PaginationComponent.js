@@ -50,11 +50,16 @@ export default class PaginationComponent extends Component {
 
   // 渲染页码
   renderPageNum(pageNumRange) {
-    const { paginationChange } = this.props
+    const { paginationChange, pageCurrent } = this.props
 
     return pageNumRange.map((data, i) => {
-      return <li>
-        <a className={styles.pageNum} onClick={paginationChange}>
+      let pageNumStyle = styles.pageNum
+      if (Number(pageCurrent) === i + 1) {
+        pageNumStyle = `${pageNumStyle} ${styles.pageNumCurrent}`
+      }
+      
+      return <li key={i}>
+        <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
           {i+1}
         </a>
       </li>

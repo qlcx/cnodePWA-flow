@@ -23,9 +23,9 @@
   color: #778087;
 }
 /* 当前页码 */
-.pageNumCurrent, 
-.pageNum:focus {
-  color: #80bd01;
+.pageNumCurrent {
+  background: #80bd01;
+  color: #fff;
 }
 
 /* 前进 后退被按下 */
