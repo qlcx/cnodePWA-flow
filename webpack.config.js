@@ -21,7 +21,8 @@ module.exports = {
     hot: true,
     contentBase: resolve(__dirname, 'dist'),
     publicPath: '/',
-    compress: true,    
+    compress: true,
+    port: '9090',    
   },
 
   module: {

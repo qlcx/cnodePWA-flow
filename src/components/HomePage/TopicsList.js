@@ -23,7 +23,6 @@ class TopicsList extends Component {
 
   renderTopicItem(topicData) {
     return <li key={topicData.id} className={styles.listGroupItem}>
-      <div>
       <a href='#'>
         <img 
           className={styles.avatar} 
@@ -33,15 +32,13 @@ class TopicsList extends Component {
 
       {this.renderTopicTag(topicData.tab, topicData.top)}
 
+      <a href='#' className={styles.topicTitle}>
+        {topicData.title}
+      </a>
+
       <span className={styles.topicLastReply}>
         {moment(topicData.last_reply_at).fromNow()}
       </span>
-      </div>
-      <div styles={{whiteSpace: 'nowrap'}}>
-              <a href='#' className={styles.topicTitle}>
-        {topicData.title}
-      </a>
-      </div>
     </li>
   }
 

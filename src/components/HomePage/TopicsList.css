@@ -54,12 +54,19 @@
 }
 /* 最后一次回答 */
 .topicLastReply {
+  position: absolute;
+  right: 1.25rem;
   float: right;
-  
+  font-size: 1.1rem;
 }
 
 @media(max-width: 960px) {
   .listGroup {
     font-size: 1.4rem;
+  }
+}
+@media(max-width: 840px) {
+  .topicTitle {
+    width: 60%;
   }
 }

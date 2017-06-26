@@ -8,9 +8,20 @@ const initialState = {
 const GET_TOPICS_LIST = 'GET_TOPICS_LIST'     // 获取话题列表
 
 // 获得话题列表数据
-export const getTopicsList = (...params) => {
+export const getTopicsList = (params = {}) => {
+  let formParams = ''
+  if (params) {
+    let cnt = 0
+    for (let key in params) {
+      if (cnt) formParams += `?${key}=${params[key]}`
+      formParams += `&${key}=${params[key]}`
+
+      cnt++
+    }
+  }
+
   return dispatch => {
-    return fetchData.get('/topics').then(res => {
+    return fetchData.get(`/topics${formParams}`).then(res => {
       return dispatch({
         type: GET_TOPICS_LIST,
         data: res
