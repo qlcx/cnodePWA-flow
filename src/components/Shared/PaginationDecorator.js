@@ -18,6 +18,8 @@ const paginationDecorator = WrappedComponent => {
 
     // 判断翻页按钮是否按下
     paginationActionChange(type) {
+      let pageCurrentVal = Number(this.state.pageCurrent)
+
       let typeArr = type.split('-')
       let isDown = typeArr[1]
       let whichBtn = typeArr[0]
@@ -25,6 +27,14 @@ const paginationDecorator = WrappedComponent => {
         this.setState({ whichBtnDown: whichBtn })
       } else {
         this.setState({ whichBtnDown: '' })
+      }
+
+      if (isDown === 'down') {
+        if (whichBtn === 'previous' && pageCurrentVal > 1) {
+          this.setState({ pageCurrent: pageCurrentVal - 1 })
+        } else if (whichBtn === 'next') {
+          this.setState({ pageCurrent: pageCurrentVal + 1 })        
+        }
       }
     }
 
