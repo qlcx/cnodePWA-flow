@@ -10,17 +10,29 @@
   list-style: none;
   font-size: 1.4rem;
 }
+/* 页码 */
+.pageAction, 
 .pageNum {
-  padding: 4px 12px;
+  margin: 0 3px;  
+  padding: 6px 12px;
   line-height: 20px;
   background-color: #ffffff;
   border: 1px solid #dddddd;
-  border-left-width: 0;
-  color: #778087;
   border-radius: .25rem;  
+  /*border-left-width: 0;*/
+  color: #778087;
+}
+/* 当前页码 */
+.pageNumCurrent, 
+.pageNum:focus {
+  color: #80bd01;
 }
 
-/* 当前页码 */
-.pageNum:focus {
-  color: #80bd01
+/* 前进 后退被按下 */
+.pageActionActive {
+  color: #80bd01;
+  border: 1px solid #80bd01;
+}
+.pageAction:hover {
+  color: #80bd01;
 }

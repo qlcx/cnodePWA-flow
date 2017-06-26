@@ -22,6 +22,9 @@
   border-bottom: solid 1px #f0f0f0;
   margin-bottom: -1px;
 }
+.listGroupItem:hover {
+  background: #f6f6f6;
+}
 
 /* 话题元素 */
 /* 头像 */

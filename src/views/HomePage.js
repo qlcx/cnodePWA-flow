@@ -3,7 +3,11 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import TopicsList from '../components/HomePage/TopicsList'
+
+// 分页器
 import PaginationComponent from '../components/BasicComponent/PaginationComponent'
+import paginationDecorator from '../components/Shared/PaginationDecorator'
+const Pagination = paginationDecorator(PaginationComponent)
 
 import { actions } from './HomePageReudx'
 
@@ -24,7 +28,7 @@ class MainPage extends Component {
 
     return <div>
       <TopicsList {...state} />
-      <PaginationComponent />
+      <Pagination />
     </div>
   }
 }
