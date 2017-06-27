@@ -24,24 +24,22 @@ export default class PaginationComponent extends Component {
 
     return <div className={styles.root}>
       <ul className={styles.pageFooter}>      
-        <li key='previous'>
-          <a
-            className={previosStyle} 
-            onMouseDown={() => paginationActionChange('previous-down')}
-            onMouseUp={() => paginationActionChange('previous-up')}>
-            {'<'}
-          </a>
+        <li 
+          key='previous' 
+          className={previosStyle}
+          onMouseDown={() => paginationActionChange('previous-single-down')}
+          onMouseUp={() => paginationActionChange('previous-single-up')}>
+          <a>{'<'}</a>
         </li>
 
         {this.renderPageNum()}
 
-        <li key='next'>
-          <a
-            className={nextStyle} 
-            onMouseDown={() => paginationActionChange('next-down')}
-            onMouseUp={() => paginationActionChange('next-up')}>
-            {'>'}
-          </a>
+        <li 
+          key='next' 
+          className={nextStyle}
+          onMouseDown={() => paginationActionChange('next-single-down')}
+          onMouseUp={() => paginationActionChange('next-single-up')}>
+          <a>{'>'}</a>
         </li>
       </ul>
     </div>
@@ -49,7 +47,7 @@ export default class PaginationComponent extends Component {
 
   // 渲染页码
   renderPageNum() {
-    const { paginationChange, pageCurrent, pageTotal } = this.props
+    const { paginationChange, paginationActionChange, pageCurrent, pageTotal } = this.props
 
     let pageNumComponentArr = []
 
@@ -62,46 +60,38 @@ export default class PaginationComponent extends Component {
       }
 
       if (pageTotal <= 10) {
-        pageNumItem = <li key={i}>
-          <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
-            {i}
-          </a>
+        pageNumItem = <li key={i} className={pageNumStyle} value={i} onClick={e => paginationChange(e.target.value)}>
+          {i}
         </li>
       } else if (pageCurrent <= 5) {
         if (i == pageTotal || i <= 5) {
-          pageNumItem = <li key={i}>
-            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
-              {i}
-            </a>
+          pageNumItem = <li key={i} className={pageNumStyle} value={i} onClick={e => paginationChange(e.target.value)}>
+            {i}
           </li>
         } else if (i == pageTotal - 1) {
-          pageNumItem = <li key={i}><a className={styles.pageActionSpeedRight}></a></li>         
+          pageNumItem = <li key={i} className={styles.pageActionSpeedRight} onClick={() => paginationActionChange('next-double-down')}></li>         
         } else {
           pageNumItem = <li key={i} />
         }
       } else if (pageTotal - pageCurrent < 5) {
         if (i == 1 || pageTotal - i < 5) {
-          pageNumItem = <li key={i}>
-            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
-              {i}
-            </a>
+          pageNumItem = <li key={i} value={i} className={pageNumStyle} onClick={e => paginationChange(e.target.value)}>
+            {i}
           </li>
         } else if (i == 2) {
-          pageNumItem = <li key={i}><a className={styles.pageActionSpeedLeft}></a></li>          
+          pageNumItem = <li key={i} className={styles.pageActionSpeedLeft} onClick={() => paginationActionChange('previous-double-down')}></li>          
         } else {
           pageNumItem = <li key={i} />
         }
       } else {
         if (i == 1 || i == pageTotal || i == pageCurrent || i == pageCurrent + 1 || i == pageCurrent - 1) {
-          pageNumItem = <li key={i}>
-            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
-              {i}
-            </a>
+          pageNumItem = <li key={i} value={i} className={pageNumStyle} onClick={e => paginationChange(e.target.value)}>
+            {i}
           </li>
         } else if (i == 2) {
-          pageNumItem = <li key={i}><a className={styles.pageActionSpeedLeft}></a></li>                    
+          pageNumItem = <li key={i} className={styles.pageActionSpeedLeft} onClick={() => paginationActionChange('previous-double-down')}></li>                    
         } else if (i == pageTotal - 1) {
-          pageNumItem = <li key={i}><a className={styles.pageActionSpeedRight}></a></li>                    
+          pageNumItem = <li key={i} className={styles.pageActionSpeedRight}  onClick={() => paginationActionChange('next-double-down')}></li>                    
         } else {
           pageNumItem = <li key={i} />          
         }

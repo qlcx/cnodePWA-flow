@@ -13,7 +13,7 @@ const paginationDecorator = WrappedComponent => {
       this.state = {
         whichBtnDown: '',
         pageCurrent: 1,
-        pageTotal: 20,
+        pageTotal: 16,
       }
     }
 
@@ -22,19 +22,22 @@ const paginationDecorator = WrappedComponent => {
       let pageCurrentVal = Number(this.state.pageCurrent)
 
       let typeArr = type.split('-')
-      let isDown = typeArr[1]
+      let isDown = typeArr[2]
+      let actionType = typeArr[1]
       let whichBtn = typeArr[0]
-      if (isDown === 'down') {
+      if (isDown === 'down' && actionType === 'single') {
         this.setState({ whichBtnDown: whichBtn })
       } else {
         this.setState({ whichBtnDown: '' })
       }
 
       if (isDown === 'down') {
-        if (whichBtn === 'previous' && pageCurrentVal > 1) {
-          this.setState({ pageCurrent: pageCurrentVal - 1 })
-        } else if (whichBtn === 'next') {
-          this.setState({ pageCurrent: pageCurrentVal + 1 })        
+        let len = (actionType === 'single' ? 1 : 3)
+
+        if (whichBtn === 'previous' && pageCurrentVal > len) {
+          this.setState({ pageCurrent: pageCurrentVal - len })
+        } else if (whichBtn === 'next' && pageCurrentVal < this.state.pageTotal) {
+          this.setState({ pageCurrent: pageCurrentVal + len })        
         }
       }
     }
