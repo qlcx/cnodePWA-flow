@@ -11,7 +11,7 @@ export default class PaginationComponent extends Component {
 
   render() {
     const { paginationActionChange } = this.props
-    const { whichBtnDown, pageArr } = this.props
+    const { whichBtnDown } = this.props
 
     // 向前&向后
     let previosStyle = styles.pageAction 
@@ -24,8 +24,8 @@ export default class PaginationComponent extends Component {
 
     return <div className={styles.root}>
       <ul className={styles.pageFooter}>      
-        <li>
-          <a 
+        <li key='previous'>
+          <a
             className={previosStyle} 
             onMouseDown={() => paginationActionChange('previous-down')}
             onMouseUp={() => paginationActionChange('previous-up')}>
@@ -33,9 +33,9 @@ export default class PaginationComponent extends Component {
           </a>
         </li>
 
-        {this.renderPageNum(pageArr)}
+        {this.renderPageNum()}
 
-        <li>
+        <li key='next'>
           <a
             className={nextStyle} 
             onMouseDown={() => paginationActionChange('next-down')}
@@ -48,32 +48,86 @@ export default class PaginationComponent extends Component {
   }
 
   // 渲染页码
-  renderPageNum(pageNumRange) {
-    const { paginationChange, pageCurrent } = this.props
+  renderPageNum() {
+    const { paginationChange, pageCurrent, pageTotal } = this.props
 
-    return pageNumRange.map((data, i) => {
-      let pageNum = i + 1
+    let pageNumComponentArr = []
+
+    for (let i = 1; i <= pageTotal; i++) {
+      let pageNumItem = ''
 
       let pageNumStyle = styles.pageNum
-      if (Number(pageCurrent) === pageNum) {
+      if (Number(pageCurrent) === i) {
         pageNumStyle = `${pageNumStyle} ${styles.pageNumCurrent}`
       }
 
-      if (pageNum == 5) {
-        return <a className={styles.pageActionSpeedRight}></a>
+      if (pageTotal < 8) {
+        pageNumItem = <li key={i}>
+          <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
+            {i}
+          </a>
+        </li>
+      } else if (pageCurrent < 6) {
+        if (i == pageTotal) {
+          pageNumItem = <li key={i}>
+            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
+              {i}
+            </a>
+          </li>
+        } else if (i > 6) {
+          pageNumItem = <li key={i} />
+        } else if (i == 6) {
+          pageNumItem = <li key={i}><a className={styles.pageActionSpeedRight}></a></li>          
+        } else {
+          pageNumItem = <li key={i}>
+            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
+              {i}
+            </a>
+          </li>
+        }
+      } else if (pageTotal - pageCurrent < 6) {
+        if (i == 1) {
+          pageNumItem = <li key={i}>
+            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
+              {i}
+            </a>
+          </li>
+        } else if (pageTotal - i > 6) {
+          pageNumItem = <li key={i} />
+        } else if (pageTotal - i == 6) {
+          pageNumItem = <li key={i}><a className={styles.pageActionSpeedLeft}></a></li>          
+        } else {
+          pageNumItem = <li key={i}>
+            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
+              {i}
+            </a>
+          </li>
+        }
+      } else {
+        if (i == 1 || i == pageTotal) {
+          pageNumItem = <li key={i}>
+            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
+              {i}
+            </a>
+          </li>
+        } else if (i == 2) {
+          pageNumItem = <li key={i}><a className={styles.pageActionSpeedLeft}></a></li>                    
+        } else if (pageTotal - i == 2) {
+          pageNumItem = <li key={i}><a className={styles.pageActionSpeedRight}></a></li>                    
+        } else if ( i == pageCurrent || i == pageCurrent + 1 || i == pageCurrent - 1) {
+          pageNumItem = <li key={i}>
+            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
+              {i}
+            </a>
+          </li>
+        } else {
+          pageNumItem = <li key={i} />          
+        }
       }
 
-      if (pageCurrent <= 5 && pageNum > 5) {
-        return <div />
-      } else if (pageCurrent <=5 && pageNum == pageNumRange[pageNumRange.length - 1]) {
-        return <a className={styles.pageActionSpeedRight}></a>
-      }
-      
-      return <li key={i}>
-        <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
-          {pageNum}
-        </a>
-      </li>
-    })
+      pageNumComponentArr.push(pageNumItem)
+    }
+
+    return pageNumComponentArr
   }
 }
