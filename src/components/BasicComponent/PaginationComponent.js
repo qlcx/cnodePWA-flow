@@ -61,50 +61,38 @@ export default class PaginationComponent extends Component {
         pageNumStyle = `${pageNumStyle} ${styles.pageNumCurrent}`
       }
 
-      if (pageTotal < 8) {
+      if (pageTotal <= 10) {
         pageNumItem = <li key={i}>
           <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
             {i}
           </a>
         </li>
-      } else if (pageCurrent < 6) {
-        if (i == pageTotal) {
+      } else if (pageCurrent <= 5) {
+        if (i == pageTotal || i <= 5) {
           pageNumItem = <li key={i}>
             <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
               {i}
             </a>
           </li>
-        } else if (i > 6) {
-          pageNumItem = <li key={i} />
-        } else if (i == 6) {
-          pageNumItem = <li key={i}><a className={styles.pageActionSpeedRight}></a></li>          
+        } else if (i == pageTotal - 1) {
+          pageNumItem = <li key={i}><a className={styles.pageActionSpeedRight}></a></li>         
         } else {
-          pageNumItem = <li key={i}>
-            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
-              {i}
-            </a>
-          </li>
-        }
-      } else if (pageTotal - pageCurrent < 6) {
-        if (i == 1) {
-          pageNumItem = <li key={i}>
-            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
-              {i}
-            </a>
-          </li>
-        } else if (pageTotal - i > 6) {
           pageNumItem = <li key={i} />
-        } else if (pageTotal - i == 6) {
+        }
+      } else if (pageTotal - pageCurrent < 5) {
+        if (i == 1 || pageTotal - i < 5) {
+          pageNumItem = <li key={i}>
+            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
+              {i}
+            </a>
+          </li>
+        } else if (i == 2) {
           pageNumItem = <li key={i}><a className={styles.pageActionSpeedLeft}></a></li>          
         } else {
-          pageNumItem = <li key={i}>
-            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
-              {i}
-            </a>
-          </li>
+          pageNumItem = <li key={i} />
         }
       } else {
-        if (i == 1 || i == pageTotal) {
+        if (i == 1 || i == pageTotal || i == pageCurrent || i == pageCurrent + 1 || i == pageCurrent - 1) {
           pageNumItem = <li key={i}>
             <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
               {i}
@@ -112,14 +100,8 @@ export default class PaginationComponent extends Component {
           </li>
         } else if (i == 2) {
           pageNumItem = <li key={i}><a className={styles.pageActionSpeedLeft}></a></li>                    
-        } else if (pageTotal - i == 2) {
+        } else if (i == pageTotal - 1) {
           pageNumItem = <li key={i}><a className={styles.pageActionSpeedRight}></a></li>                    
-        } else if ( i == pageCurrent || i == pageCurrent + 1 || i == pageCurrent - 1) {
-          pageNumItem = <li key={i}>
-            <a className={pageNumStyle} onClick={e => paginationChange(e.target.text)}>
-              {i}
-            </a>
-          </li>
         } else {
           pageNumItem = <li key={i} />          
         }

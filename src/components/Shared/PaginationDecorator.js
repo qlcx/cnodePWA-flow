@@ -40,7 +40,7 @@ const paginationDecorator = WrappedComponent => {
     }
 
     paginationChange(pageNum) {
-      this.setState({ pageCurrent: pageNum })
+      this.setState({ pageCurrent: Number(pageNum) })
     }
 
     render() {
