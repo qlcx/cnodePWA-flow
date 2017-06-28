@@ -32,8 +32,8 @@
       -ms-flex-align: center;
           align-items: center;
   width: 34px;
+  height: 34px;
   margin: 0 3px;  
-  line-height: 20px;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: .25rem;  

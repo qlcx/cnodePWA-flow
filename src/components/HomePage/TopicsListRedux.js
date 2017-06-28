@@ -1,30 +1,31 @@
 import fetchData from '../../utils/fetchData'
+import qs from 'qs'
 
 const initialState = {
-  topicsList: []
+  topicsList: [],           // 话题列表
+  tableLoading: false,
 }
 
 // actions
-const GET_TOPICS_LIST = 'GET_TOPICS_LIST'     // 获取话题列表
+const GET_TOPICS_LIST = 'GET_TOPICS_LIST'                     // 获取话题列表
+const SET_TABLE_LOADING_STA = 'SET_TABLE_LOADING_STA'         // 设置表格加载状态
 
 // 获得话题列表数据
 export const getTopicsList = (params = {}) => {
-  let formParams = ''
+  let reqParams = ''
   if (params) {
-    let cnt = 0
-    for (let key in params) {
-      if (cnt) formParams += `?${key}=${params[key]}`
-      formParams += `&${key}=${params[key]}`
-
-      cnt++
-    }
+    reqParams += `?${qs.stringify(params)}`
   }
 
   return dispatch => {
-    return fetchData.get(`/topics${formParams}`).then(res => {
+    // 加载状态
+    dispatch({type: SET_TABLE_LOADING_STA, sta: true})
+
+    // get 列表数据
+    return fetchData.get(`/topics${reqParams}`).then(res => {
       return dispatch({
         type: GET_TOPICS_LIST,
-        data: res
+        data: res,
       })
     }).catch(e => {
       console.log(e)
@@ -36,7 +37,12 @@ export default function topicsListReducer(state = initialState, action) {
   switch(action.type) {
     case GET_TOPICS_LIST:
       return Object.assign({}, state, {
-        topicsList: action.data
+        topicsList: action.data,
+        tableLoading: false,
+      })
+    case SET_TABLE_LOADING_STA:
+      return Object.assign({}, state, {
+        tableLoading: action.sta,
       })
     
     default:

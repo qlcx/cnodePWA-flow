@@ -13,7 +13,7 @@ const paginationDecorator = WrappedComponent => {
       this.state = {
         whichBtnDown: '',
         pageCurrent: 1,
-        pageTotal: 16,
+        pageTotal: 10,
       }
     }
 
@@ -35,14 +35,17 @@ const paginationDecorator = WrappedComponent => {
         let len = (actionType === 'single' ? 1 : 3)
 
         if (whichBtn === 'prev' && pageCurrentVal > len) {
+          this.props.onChange(pageCurrentVal - len)
           this.setState({ pageCurrent: pageCurrentVal - len })
         } else if (whichBtn === 'next' && pageCurrentVal < this.state.pageTotal) {
+          this.props.onChange(pageCurrentVal + len)          
           this.setState({ pageCurrent: pageCurrentVal + len })        
         }
       }
     }
 
     paginationChange(pageNum) {
+      this.props.onChange(pageNum)
       this.setState({ pageCurrent: Number(pageNum) })
     }
 

@@ -14,6 +14,8 @@ import { actions } from './HomePageReudx'
 class MainPage extends Component {
   constructor(props) {
     super(props)
+
+    this.paginationChange = this.paginationChange.bind(this)
   }
 
   componentWillMount() {
@@ -22,13 +24,20 @@ class MainPage extends Component {
     // 获取主题首页列表
     actions.getTopicsList()
   }
+
+  // 切换页
+  paginationChange(pageNum) {
+    const { actions } = this.props
+
+    actions.getTopicsList({page: pageNum})
+  }
   
   render() {
     const { state } = this.props
 
     return <div>
       <TopicsList {...state} />
-      <Pagination />
+      <Pagination onChange={this.paginationChange} />
     </div>
   }
 }

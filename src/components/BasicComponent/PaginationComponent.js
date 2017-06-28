@@ -66,7 +66,7 @@ export default class PaginationComponent extends Component {
       }
 
       if (pageTotal <= 10) {
-        pageNumItem = <li key={i} className={pageNumStyle} value={i} onClick={e => paginationChange(e.target.value)}>
+        pageNumItem = <li href='#' key={i} className={pageNumStyle} value={i} onClick={e => paginationChange(e.target.value)}>
           {i}
         </li>
       } else if (pageCurrent <= 5) {
