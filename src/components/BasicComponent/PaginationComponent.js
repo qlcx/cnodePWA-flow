@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 
 import styles from './PaginationComponent.css'
 
+class PaginationAction extends Component {
+  render() {
+    return <li />
+  }
+}
+
 export default class PaginationComponent extends Component {
   constructor(props) {
     super(props)
@@ -16,7 +22,7 @@ export default class PaginationComponent extends Component {
     // 向前&向后
     let previosStyle = styles.pageAction 
     let nextStyle = styles.pageAction
-    if (whichBtnDown === 'previous') {
+    if (whichBtnDown === 'prev') {
       previosStyle = `${previosStyle} ${styles.pageActionActive}`
     } else if (whichBtnDown === 'next') {
       nextStyle = `${nextStyle} ${styles.pageActionActive}`
@@ -25,10 +31,10 @@ export default class PaginationComponent extends Component {
     return <div className={styles.root}>
       <ul className={styles.pageFooter}>      
         <li 
-          key='previous' 
+          key='prev' 
           className={previosStyle}
-          onMouseDown={() => paginationActionChange('previous-single-down')}
-          onMouseUp={() => paginationActionChange('previous-single-up')}>
+          onMouseDown={() => paginationActionChange('prev-single-down')}
+          onMouseUp={() => paginationActionChange('prev-single-up')}>
           <a>{'<'}</a>
         </li>
 
@@ -70,8 +76,6 @@ export default class PaginationComponent extends Component {
           </li>
         } else if (i == pageTotal - 1) {
           pageNumItem = <li key={i} className={styles.pageActionSpeedRight} onClick={() => paginationActionChange('next-double-down')}></li>         
-        } else {
-          pageNumItem = <li key={i} />
         }
       } else if (pageTotal - pageCurrent < 5) {
         if (i == 1 || pageTotal - i < 5) {
@@ -79,9 +83,7 @@ export default class PaginationComponent extends Component {
             {i}
           </li>
         } else if (i == 2) {
-          pageNumItem = <li key={i} className={styles.pageActionSpeedLeft} onClick={() => paginationActionChange('previous-double-down')}></li>          
-        } else {
-          pageNumItem = <li key={i} />
+          pageNumItem = <li key={i} className={styles.pageActionSpeedLeft} onClick={() => paginationActionChange('prev-double-down')}></li>          
         }
       } else {
         if (i == 1 || i == pageTotal || i == pageCurrent || i == pageCurrent + 1 || i == pageCurrent - 1) {
@@ -89,13 +91,13 @@ export default class PaginationComponent extends Component {
             {i}
           </li>
         } else if (i == 2) {
-          pageNumItem = <li key={i} className={styles.pageActionSpeedLeft} onClick={() => paginationActionChange('previous-double-down')}></li>                    
+          pageNumItem = <li key={i} className={styles.pageActionSpeedLeft} onClick={() => paginationActionChange('prev-double-down')}></li>                    
         } else if (i == pageTotal - 1) {
           pageNumItem = <li key={i} className={styles.pageActionSpeedRight}  onClick={() => paginationActionChange('next-double-down')}></li>                    
-        } else {
-          pageNumItem = <li key={i} />          
         }
       }
+
+      if (!pageNumItem) continue
 
       pageNumComponentArr.push(pageNumItem)
     }
