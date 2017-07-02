@@ -37,7 +37,7 @@ class MainPage extends Component {
 
     return <div>
       <TopicsList {...state} />
-      <Pagination onChange={this.paginationChange} />
+      {state.topicsList.length ? <Pagination onChange={this.paginationChange} /> : null}
     </div>
   }
 }
