@@ -13,14 +13,16 @@ export default class SpinnerComponent extends Component {
     }
 
     return (
-      <div className={styles.root}>
-        <span className={}>
-        <span class="default spin-dot">
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-        </span>
+      <div>
+        <div className={styles.mask} />        
+        <div className={styles.root}>
+          <span className={spinStyle}>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+        </div>
       </div>
     )
   }

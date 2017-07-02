@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import moment from 'moment'
 
+import SpinnerComponent from '../BasicComponent/SpinnerComponent'
 import styles from './TopicsList.css'
 
 // 标签转换
@@ -11,15 +12,18 @@ TagsMap.set('top', '置顶')
 
 class TopicsList extends Component {
   render() {
-    const { topicsList } = this.props
+    const { topicsList, tableLoading } = this.props
 
-    return <ul className={styles.listGroup}>
-      {
-        topicsList.map(data => {
-          return this.renderTopicItem(data)
-        })
-      }
-    </ul>
+    return <div className={styles.root}>
+      {tableLoading ? <SpinnerComponent /> : null}
+      <ul className={styles.listGroup}>
+        {
+          topicsList.map(data => {
+            return this.renderTopicItem(data)
+          })
+        }
+      </ul>
+    </div>
   }
 
   renderTopicItem(topicData) {
