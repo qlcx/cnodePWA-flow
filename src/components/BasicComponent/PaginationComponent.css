@@ -20,7 +20,6 @@
   font-size: 1.4rem;
 }
 /* 页码 */
-.pageAction, 
 .pageNum {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -47,13 +46,21 @@
 }
 
 /* 前进 后退 */
+.prevBTN::after {
+  content: '\003c';
+}
+.nextBTN::after {
+  content: '\003e';
+}
+.prevBTN:hover::after,
+.nextBTN:hover::after {
+  color: #80bd01;
+}
 .pageActionActive {
   color: #80bd01;
   border: 1px solid #80bd01;
 }
-.pageAction:hover {
-  color: #80bd01;
-}
+
 /* 快进 */
 .pageActionSpeedLeft::after,
 .pageActionSpeedRight::after {

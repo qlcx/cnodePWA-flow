@@ -13,6 +13,7 @@ export default class PaginationComponent extends Component {
     super(props)
 
     this.renderPageNum = this.renderPageNum.bind(this)
+    this.renderActionBTN = this.renderActionBTN.bind(this)
   }
 
   render() {
@@ -20,35 +21,36 @@ export default class PaginationComponent extends Component {
     const { whichBtnDown } = this.props
 
     // 向前&向后
-    let previosStyle = styles.pageAction 
-    let nextStyle = styles.pageAction
+    let prevStyle = `${styles.pageNum} ${styles.prevBTN}`
+    let nextStyle = `${styles.pageNum} ${styles.nextBTN}`
     if (whichBtnDown === 'prev') {
-      previosStyle = `${previosStyle} ${styles.pageActionActive}`
+      prevStyle = `${prevStyle} ${styles.pageActionActive}`
     } else if (whichBtnDown === 'next') {
       nextStyle = `${nextStyle} ${styles.pageActionActive}`
     }
 
     return <div className={styles.root}>
       <ul className={styles.pageFooter}>      
-        <li 
-          key='prev' 
-          className={previosStyle}
-          onMouseDown={() => paginationActionChange('prev-single-down')}
-          onMouseUp={() => paginationActionChange('prev-single-up')}>
-          <a>{'<'}</a>
-        </li>
+        {this.renderActionBTN('prev', prevStyle)}
 
         {this.renderPageNum()}
 
-        <li 
-          key='next' 
-          className={nextStyle}
-          onMouseDown={() => paginationActionChange('next-single-down')}
-          onMouseUp={() => paginationActionChange('next-single-up')}>
-          <a>{'>'}</a>
-        </li>
+        {this.renderActionBTN('next', nextStyle)}
       </ul>
     </div>
+  }
+
+  // 渲染操作键
+  renderActionBTN(type, style) {
+    const { paginationActionChange } = this.props
+
+    return <li key={type}>
+      <a 
+        className={style}
+        onMouseDown={() => paginationActionChange(`${type}-single-down`)}
+        onMouseUp={() => paginationActionChange(`${type}-single-up`)}
+        href='#' />
+    </li>
   }
 
   // 渲染页码
@@ -66,7 +68,7 @@ export default class PaginationComponent extends Component {
       }
 
       if (pageTotal <= 10) {
-        pageNumItem = <li href='#' key={i} className={pageNumStyle} value={i} onClick={e => paginationChange(e.target.value)}>
+        pageNumItem = <li key={i} className={pageNumStyle} value={i} onClick={e => paginationChange(e.target.value)}>
           {i}
         </li>
       } else if (pageCurrent <= 5) {
@@ -93,7 +95,7 @@ export default class PaginationComponent extends Component {
         } else if (i == 2) {
           pageNumItem = <li key={i} className={styles.pageActionSpeedLeft} onClick={() => paginationActionChange('prev-double-down')}></li>                    
         } else if (i == pageTotal - 1) {
-          pageNumItem = <li key={i} className={styles.pageActionSpeedRight}  onClick={() => paginationActionChange('next-double-down')}></li>                    
+          pageNumItem = <li key={i} className={styles.pageActionSpeedRight} onClick={() => paginationActionChange('next-double-down')}></li>                    
         }
       }
 
