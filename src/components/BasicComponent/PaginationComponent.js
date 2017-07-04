@@ -30,13 +30,15 @@ export default class PaginationComponent extends Component {
     }
 
     return <div className={styles.root}>
-      <ul className={styles.pageFooter}>      
-        {this.renderActionBTN('prev', prevStyle)}
+      <a href='#'>
+        <ul className={styles.pageFooter}>      
+          {this.renderActionBTN('prev', prevStyle)}
 
-        {this.renderPageNum()}
+          {this.renderPageNum()}
 
-        {this.renderActionBTN('next', nextStyle)}
-      </ul>
+          {this.renderActionBTN('next', nextStyle)}
+        </ul>
+      </a>
     </div>
   }
 
@@ -44,12 +46,11 @@ export default class PaginationComponent extends Component {
   renderActionBTN(type, style) {
     const { paginationActionChange } = this.props
 
-    return <li key={type}>
-      <a 
-        className={style}
-        onMouseDown={() => paginationActionChange(`${type}-single-down`)}
-        onMouseUp={() => paginationActionChange(`${type}-single-up`)}
-        href='#' />
+    return <li 
+      key={type}
+      className={style}
+      onMouseDown={() => paginationActionChange(`${type}-single-down`)}
+      onMouseUp={() => paginationActionChange(`${type}-single-up`)}>
     </li>
   }
 
@@ -57,10 +58,8 @@ export default class PaginationComponent extends Component {
   renderPageNum() {
     const { paginationChange, paginationActionChange, pageCurrent, pageTotal } = this.props
 
-    let pageNumComponentArr = []
-
-    for (let i = 1; i <= pageTotal; i++) {
-      let pageNumItem = ''
+    return Array(pageTotal).fill(1).map((data, index) => {
+      let i = index + 1
 
       let pageNumStyle = styles.pageNum
       if (Number(pageCurrent) === i) {
@@ -68,42 +67,48 @@ export default class PaginationComponent extends Component {
       }
 
       if (pageTotal <= 10) {
-        pageNumItem = <li key={i} className={pageNumStyle} value={i} onClick={e => paginationChange(e.target.value)}>
+        return <li key={i}
+          className={pageNumStyle}
+          value={i}
+          onClick={e => paginationChange(e.target.value)}>
           {i}
         </li>
       } else if (pageCurrent <= 5) {
         if (i == pageTotal || i <= 5) {
-          pageNumItem = <li key={i} className={pageNumStyle} value={i} onClick={e => paginationChange(e.target.value)}>
+          return <li key={i}
+            className={pageNumStyle}
+            value={i}
+            onClick={e => paginationChange(e.target.value)}>
             {i}
           </li>
         } else if (i == pageTotal - 1) {
-          pageNumItem = <li key={i} className={styles.pageActionSpeedRight} onClick={() => paginationActionChange('next-double-down')}></li>         
+          return <li key={i} className={styles.pageActionSpeedRight} onClick={() => paginationActionChange('next-double-down')}></li>         
         }
       } else if (pageTotal - pageCurrent < 5) {
         if (i == 1 || pageTotal - i < 5) {
-          pageNumItem = <li key={i} value={i} className={pageNumStyle} onClick={e => paginationChange(e.target.value)}>
+          return <li key={i}
+            className={pageNumStyle}
+            value={i}
+            onClick={e => paginationChange(e.target.value)}>
             {i}
           </li>
         } else if (i == 2) {
-          pageNumItem = <li key={i} className={styles.pageActionSpeedLeft} onClick={() => paginationActionChange('prev-double-down')}></li>          
+          return <li key={i} className={styles.pageActionSpeedLeft} onClick={() => paginationActionChange('prev-double-down')}></li>          
         }
       } else {
         if (i == 1 || i == pageTotal || i == pageCurrent || i == pageCurrent + 1 || i == pageCurrent - 1) {
-          pageNumItem = <li key={i} value={i} className={pageNumStyle} onClick={e => paginationChange(e.target.value)}>
+          return <li key={i}
+            className={pageNumStyle}
+            value={i}
+            onClick={e => paginationChange(e.target.value)}>
             {i}
           </li>
         } else if (i == 2) {
-          pageNumItem = <li key={i} className={styles.pageActionSpeedLeft} onClick={() => paginationActionChange('prev-double-down')}></li>                    
+          return <li key={i} className={styles.pageActionSpeedLeft} onClick={() => paginationActionChange('prev-double-down')}></li>                    
         } else if (i == pageTotal - 1) {
-          pageNumItem = <li key={i} className={styles.pageActionSpeedRight} onClick={() => paginationActionChange('next-double-down')}></li>                    
+          return <li key={i} className={styles.pageActionSpeedRight} onClick={() => paginationActionChange('next-double-down')}></li>                    
         }
       }
-
-      if (!pageNumItem) continue
-
-      pageNumComponentArr.push(pageNumItem)
-    }
-
-    return pageNumComponentArr
+    })
   }
 }
