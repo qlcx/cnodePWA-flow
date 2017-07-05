@@ -3,9 +3,10 @@ const { resolve } = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
+  entry: {
+    main: ['babel-polyfill', './src/index.js'],
+    vendor: ['react', 'react-dom', 'axios', 'bluebird', 'moment', 'redux']
+  },
   output: {
     filename: '[name].js',
     path: resolve(__dirname, 'dist'),
@@ -38,8 +39,14 @@ module.exports = {
   },
   
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
     new ExtractTextPlugin('styles.css'),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+		new webpack.optimize.CommonsChunkPlugin({name: 'vendor'}),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'manifest',
+			chunks: ['vendor']
+		}),
   ],
 }
