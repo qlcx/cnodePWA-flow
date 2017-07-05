@@ -13,7 +13,7 @@ const SET_TABLE_LOADING_STA = 'SET_TABLE_LOADING_STA'         // 设置表格加
 // 获得话题列表数据
 export const getTopicsList = (params = {}) => {
   let reqParams = ''
-  if (params) {
+  if (Object.keys(params).length) {
     reqParams += `?${qs.stringify(params)}`
   }
 

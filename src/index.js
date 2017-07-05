@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 
 import Router from './router'
+import registerServiceWorker from './registerServiceWorker'
 
 // 添加中文时间显示
 import moment from 'moment'
@@ -26,3 +27,5 @@ if(module.hot) {
     render(NewRouter)
   })  
 }
+
+registerServiceWorker()
