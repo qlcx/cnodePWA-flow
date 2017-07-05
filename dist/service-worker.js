@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["favicon.ico","fd73a6eb26a08ee46e7fd3cc34e7f6bf"],["index.html","7ddcd9682863b224f23a6dc159c24055"],["main.js","58a8f5d47fb2981cd1f9f2bb43f4bced"],["manifest.js","99cc7ee15e6bd2ab5f0f16e07630a3e0"],["manifest.json","1d28c40ee87f1b67f9efc7c52e36c6c8"],["styles.css","d6945aa21ce39bde4e867f2aab2038fb"],["vendor.js","4e27f571cc8c5e826ddcf7da3001b80e"]];
+var precacheConfig = [["favicon.ico","fd73a6eb26a08ee46e7fd3cc34e7f6bf"],["index.html","7ddcd9682863b224f23a6dc159c24055"],["main.js","d78440117288b0cc4440d5fea89a0c16"],["manifest.js","99cc7ee15e6bd2ab5f0f16e07630a3e0"],["manifest.json","1d28c40ee87f1b67f9efc7c52e36c6c8"],["styles.css","d6945aa21ce39bde4e867f2aab2038fb"],["vendor.js","4e27f571cc8c5e826ddcf7da3001b80e"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
@@ -286,6 +286,8 @@ self.addEventListener('fetch', function(event) {
 // Runtime cache configuration, using the sw-toolbox library.
 
 toolbox.router.get(/^https:\/\/cnodejs\.org\/api\/v1\/topics/, toolbox.networkFirst, {});
+toolbox.router.get(/^https:\/\/cnodejs\.org\/public\/images\/cnodejs_light\.svg/, toolbox.cacheFirst, {});
+toolbox.router.get(/avatar/, toolbox.cacheFirst, {});
 
 
 
