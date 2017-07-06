@@ -21,9 +21,31 @@ export default class Layout extends Component {
     super(props)
 
     this.renderSider = this.renderSider.bind(this)
+    this.handleMouseDown = this.handleMouseDown.bind(this)
 
     this.state = {
       currentType: 'all',
+      isShowMenu: false,
+    }
+  }
+
+  componentWillMount() {
+    window.addEventListener('mousedown', this.handleMouseDown)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('mousedown', this.handleMouseDown)
+  }
+
+  // 监听鼠标事件
+  handleMouseDown(event) {
+    let e = event || window.event;
+    let scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+    let x = e.pageX || e.clientX + scrollX;
+    console.log(x)    
+
+    if (x > 200) {
+      this.setState({ isShowMenu: false })
     }
   }
 
@@ -48,7 +70,7 @@ export default class Layout extends Component {
         <div className={styles.tmTbod}>
           <img className={styles.imgLogo} src='https://cnodejs.org/public/images/cnodejs_light.svg' />
           <span className={styles.crumb}>全部</span>
-          <a className={styles.menu} onClick={() => console.log('menu')}>
+          <a className={styles.menu} onClick={() => this.setState({ isShowMenu: true })}>
             <i className='iconfont icon-menu' />
           </a>
         </div>
@@ -62,17 +84,19 @@ export default class Layout extends Component {
 
   renderSider() {
     return (
-      <div className={styles.sider}>
+      <div className={this.state.isShowMenu ? styles.absoluteSider : styles.sider}>
         <ul>
           {
             topicTypes.map(data => {
+              let fontStyle = undefined
+              if (data.type === this.state.currentType) {
+                fontStyle = styles.currentType
+              }
+
               return <li key={data.type}>
-                <a 
-                  href='#'
-                  className={data.type === this.state.currentType ? styles.currentType : undefined} 
-                  onClick={() => this.setState({currentType: data.type})}>
-                  <i className={`iconfont ${data.icon}`} />
-                  <span>{data.name}</span>
+                <a href='#' onClick={() => this.setState({ currentType: data.type })}>
+                  <i className={`iconfont ${data.icon} ${fontStyle}`} />
+                  <span className={fontStyle}>{data.name}</span>
                 </a>
               </li>
             })
