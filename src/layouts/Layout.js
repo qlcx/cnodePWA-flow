@@ -1,14 +1,17 @@
-// @flow
 import React, { Component } from 'react'
 
 import styles from './Layout.css'
 
-const Layout = (props: Object) => {
+const Layout = props => {
   return(
     <main>
       <div className={styles.header}>
-        <img className={styles.imgLogo} src='https://cnodejs.org/public/images/cnodejs_light.svg' />
-        <nav className={styles.headerNav}>
+        <div className={styles.tmTbod}>
+          <img className={styles.imgLogo} src='https://cnodejs.org/public/images/cnodejs_light.svg' />
+          <span className={styles.crumb}>全部</span>
+        </div>
+        
+        {/* <nav className={styles.headerNav}>
           <ul>
             <li><a href='#'>全部</a></li>
             <li><a href='#'>精华</a></li>
@@ -19,7 +22,10 @@ const Layout = (props: Object) => {
             
             <li><a href='#'>登录</a></li>
           </ul>
-        </nav>
+        </nav> */}
+        <a className={styles.avatar} onClick={() => console.log('login')}>
+          <i className={`iconfont icon-login`} />
+        </a>
       </div>
       
       <div className={styles.container}>

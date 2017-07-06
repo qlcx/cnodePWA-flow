@@ -13,9 +13,11 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 3.2em;
+  padding: 0 35px;
+  color: #fff;  
 }
 
+/* 导航 */
 .headerNav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,11 +42,28 @@ main {
   font-size: 1.4rem;
 }
 
+/* logo */
+.tmTbod {
+  display: flex;
+  align-items: center;
+}
 .imgLogo {
   width: 120px;
   height: 28px;
+  padding-bottom: .5em;
+  padding-right: 24px;
+  border-right: 1px solid rgba(255,255,255,.5); 
+}
+.crumb {
+  padding-left: 24px;
+  font-size: 1.8rem;
+}
 
-  margin-bottom: .5em;
+/* 登录 */
+.avatar {
+  position: absolute;
+  right: 35px;
+  font-size: 2rem;
 }
 
 /* 主体部分 */

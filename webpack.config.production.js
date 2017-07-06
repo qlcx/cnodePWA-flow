@@ -22,6 +22,16 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+      test: /\.(jpg|png|jpeg)/,
+        use: [
+          'url-loader',
+        ]
+      },
+      {
+        test: /\.(woff|svg|eot|ttf)\??.*$/,
+        loader: 'url-loader'
+      },
+      {
         test: /\.css$/,
         exclude: resolve(__dirname, 'src/styles'),
         use: ExtractTextPlugin.extract({
