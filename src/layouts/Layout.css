@@ -5,16 +5,74 @@ main {
 
 /* 页面头部 */
 .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  position: relative;
   background: #444;
+  line-height: 50px;
+  height: auto;
+  color: #fff;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, .8);
+}
+
+/* logo */
+.tmTbod {
+  display: flex;
+  align-items: center;
   height: 50px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0 35px;
-  color: #fff;  
+}
+.imgLogo {
+  width: 120px;
+  height: 28px;
+  padding-bottom: .5em;
+  padding-right: 24px;
+  margin-left: 30px;
+  border-right: 1px solid rgba(255, 255, 255, .5); 
+}
+.crumb {
+  padding-left: 24px;
+  font-size: 1.8rem;
+}
+.menu { display: none }
+
+/* 登录 */
+.avatar {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  font-size: 2rem;
+}
+
+/* 主体部分 */
+.container {
+  background: #e1e1e1;
+  width: 90vw;  
+  margin: 20px auto 15px auto;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 95vw;
+    margin-top: 15px;
+  }
+
+  .tmTbod {
+    border-bottom: 1px solid rgba(255, 255, 255, .15); 
+  }
+  .imgLogo {
+    padding-right: 0;
+    border-right: none; 
+  }
+  .crumb { display: none }
+  .menu {
+    display: block;
+    position: absolute;
+    right: 30px;
+    font-size: 1.6rem;
+  }
+  .avatar {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+  }
 }
 
 /* 导航 */
@@ -40,35 +98,4 @@ main {
 .headerNav > ul > li > a {
   color: #fff;
   font-size: 1.4rem;
-}
-
-/* logo */
-.tmTbod {
-  display: flex;
-  align-items: center;
-}
-.imgLogo {
-  width: 120px;
-  height: 28px;
-  padding-bottom: .5em;
-  padding-right: 24px;
-  border-right: 1px solid rgba(255,255,255,.5); 
-}
-.crumb {
-  padding-left: 24px;
-  font-size: 1.8rem;
-}
-
-/* 登录 */
-.avatar {
-  position: absolute;
-  right: 35px;
-  font-size: 2rem;
-}
-
-/* 主体部分 */
-.container {
-  background: #e1e1e1;
-  width: 90vw;  
-  margin: 15px auto;
 }

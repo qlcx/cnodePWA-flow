@@ -9,6 +9,9 @@ const Layout = props => {
         <div className={styles.tmTbod}>
           <img className={styles.imgLogo} src='https://cnodejs.org/public/images/cnodejs_light.svg' />
           <span className={styles.crumb}>全部</span>
+          <a className={styles.menu} onClick={() => console.log('menu')}>
+            <i className='iconfont icon-menu' />
+          </a>
         </div>
         
         {/* <nav className={styles.headerNav}>
@@ -24,7 +27,7 @@ const Layout = props => {
           </ul>
         </nav> */}
         <a className={styles.avatar} onClick={() => console.log('login')}>
-          <i className={`iconfont icon-login`} />
+          <i className='iconfont icon-login' />
         </a>
       </div>
       

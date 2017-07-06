@@ -10,6 +10,7 @@ import paginationDecorator from '../components/Shared/PaginationDecorator'
 const Pagination = paginationDecorator(PaginationComponent)
 
 import { actions } from './HomePageReudx'
+import styles from './HomePage.css'
 
 class MainPage extends Component {
   constructor(props) {
@@ -37,7 +38,9 @@ class MainPage extends Component {
 
     return <div>
       <TopicsList {...state} />
-      {state.topicsList.length ? <Pagination onChange={this.paginationChange} /> : null}
+      <div className={styles.pagination}>
+        {state.topicsList.length ? <Pagination onChange={this.paginationChange} /> : null}
+      </div>
     </div>
   }
 }

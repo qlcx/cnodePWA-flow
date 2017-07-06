@@ -29,17 +29,15 @@ export default class PaginationComponent extends Component {
       nextStyle = `${nextStyle} ${styles.pageActionActive}`
     }
 
-    return <div className={styles.root}>
-      <a href='#'>
-        <ul className={styles.pageFooter}>      
-          {this.renderActionBTN('prev', prevStyle)}
+    return <a href='#'>
+      <ul className={styles.pageFooter}>      
+        {this.renderActionBTN('prev', prevStyle)}
 
-          {this.renderPageNum()}
+        {this.renderPageNum()}
 
-          {this.renderActionBTN('next', nextStyle)}
-        </ul>
-      </a>
-    </div>
+        {this.renderActionBTN('next', nextStyle)}
+      </ul>
+    </a>
   }
 
   // 渲染操作键

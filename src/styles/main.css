@@ -15,6 +15,11 @@ a {
   text-decoration: none;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 /* 自定义icon */
 @font-face {font-family: "iconfont";
   src: url(../iconfont/iconfont.eot?t=1499312160381); /* IE9*/
