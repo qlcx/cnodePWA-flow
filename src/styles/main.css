@@ -19,6 +19,9 @@ ul {
   margin: 0;
   padding: 0;
 }
+li {
+  list-style: none;
+}
 
 /* 自定义icon */
 @font-face {font-family: "iconfont";
@@ -37,5 +40,14 @@ ul {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-guanyu {
+  width: 24px;
+}
 .icon-login:before { content: "\e60d"; }
+.icon-fenxiang:before { content: "\e611"; }
+.icon-guanyu:before { content: "\e659"; }
+.icon-zhaopin:before { content: "\e600"; }
 .icon-menu:before { content: "\e851"; }
+.icon-wenda:before { content: "\e808"; }
+.icon-huo:before { content: "\e64e"; }
+.icon-quanbu:before { content: "\e61b"; }
