@@ -42,7 +42,6 @@ export default class Layout extends Component {
     let e = event || window.event;
     let scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
     let x = e.pageX || e.clientX + scrollX;
-    console.log(x)    
 
     if (x > 200) {
       this.setState({ isShowMenu: false })

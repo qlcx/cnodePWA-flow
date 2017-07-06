@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["cnode_icon_32.png","f7fdf1663f5da5ef8b79cd9c305ae128"],["favicon.ico","fd73a6eb26a08ee46e7fd3cc34e7f6bf"],["index.html","ad54092c733fb4148c70514a1e125270"],["main.js","58a8f5d47fb2981cd1f9f2bb43f4bced"],["manifest.js","99cc7ee15e6bd2ab5f0f16e07630a3e0"],["manifest.json","1d28c40ee87f1b67f9efc7c52e36c6c8"],["styles.css","851942713fe6ac71630b4251b5339c8d"],["vendor.js","4e27f571cc8c5e826ddcf7da3001b80e"]];
+var precacheConfig = [["cnode_icon_32.png","f7fdf1663f5da5ef8b79cd9c305ae128"],["favicon.ico","fd73a6eb26a08ee46e7fd3cc34e7f6bf"],["index.html","54f16c090af42646219846be3a7b48f8"],["main.js","a0aec9d2ee1790a5c927a92ef798ae88"],["manifest.js","99cc7ee15e6bd2ab5f0f16e07630a3e0"],["manifest.json","1d28c40ee87f1b67f9efc7c52e36c6c8"],["styles.css","162d1179a7d8cc597056ec614b0dac66"],["vendor.js","9dda983cbd2e86d9ed86c4d5ad05b1c0"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
@@ -285,7 +285,7 @@ self.addEventListener('fetch', function(event) {
 
 // Runtime cache configuration, using the sw-toolbox library.
 
-toolbox.router.get(/^https:\/\/cnodejs\.org\/api\/v1\/topics/, toolbox.networkFirst, {});
+toolbox.router.get(/^https:\/\/cnodejs\.org\/api\/v1/, toolbox.networkFirst, {});
 toolbox.router.get(/^https:\/\/cnodejs\.org\/public\/images\/cnodejs_light\.svg/, toolbox.cacheFirst, {});
 toolbox.router.get(/avatar/, toolbox.cacheFirst, {});
 
