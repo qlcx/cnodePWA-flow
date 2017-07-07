@@ -8,7 +8,7 @@ import registerServiceWorker from './registerServiceWorker'
 
 // 添加中文时间显示
 import moment from 'moment'
-moment.lang('zh-cn')
+moment.locale('zh-cn')
 
 const render = Component => {
   ReactDOM.render(

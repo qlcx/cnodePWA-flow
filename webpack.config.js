@@ -22,7 +22,7 @@ module.exports = {
     contentBase: resolve(__dirname, 'dist'),
     publicPath: '/',
     compress: true,
-    port: '9090',    
+    port: '8080',    
   },
 
   module: {
