@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack -p --config webpack.config.production.js && cp manifest.json cnode_icon_32.png dist/ && sw-precache --config=sw-precache-config.js --navigate-fallback='index.html' --root='dist/' --static-file-globs='dist/**/!(*map*)'"
+    "build": "webpack -p --config webpack.config.production.js && cp ./public/index.html ./public/manifest.json ./public/favicon.ico dist/ && sw-precache --config=./public/sw-precache-config.js --navigate-fallback='index.html' --root='dist/' --static-file-globs='dist/**/!(*map*)'"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

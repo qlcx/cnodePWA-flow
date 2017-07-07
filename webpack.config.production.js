@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const { resolve } = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
+
 module.exports = {
   entry: {
     main: ['babel-polyfill', './src/index.js'],
@@ -19,7 +20,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         use: ['babel-loader'],
-        exclude: /node_modules/
+        include: resolve(__dirname, 'src/'),
       },
       {
       test: /\.(jpg|png|jpeg)/,
