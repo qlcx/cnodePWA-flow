@@ -20,8 +20,12 @@ export default class Layout extends Component {
   constructor(props) {
     super(props)
 
+    // 渲染func
     this.renderSider = this.renderSider.bind(this)
+    // 事件监听
     this.handleMouseDown = this.handleMouseDown.bind(this)
+    this.handleTouchStart = this.handleTouchStart.bind(this)
+    this.handleTouchMove = this.handleTouchMove.bind(this)
 
     this.state = {
       currentType: 'all',
@@ -31,10 +35,42 @@ export default class Layout extends Component {
 
   componentWillMount() {
     window.addEventListener('mousedown', this.handleMouseDown)
+    window.addEventListener('touchstart', this.handleTouchStart)
+    window.addEventListener('touchmove', this.handleTouchMove)
   }
 
   componentWillUnmount() {
     window.removeEventListener('mousedown', this.handleMouseDown)
+    window.removeEventListener('touchstart', this.handleTouchStart)
+    window.removeEventListener('touchmove', this.handleTouchMove)
+  }
+
+  // 监听触摸开始事件
+  handleTouchStart(event) {
+    // 判断有几根手机
+    let touchesCnt = event.changedTouches.length
+
+    if (touchesCnt === 1) {
+      this.startX = event.changedTouches[0].pageX
+    }
+  }
+
+  // 监听触摸移动事件
+  handleTouchMove(event) {
+    // 判断有几根手机
+    let touchesCnt = event.changedTouches.length
+
+    if (touchesCnt === 1 && typeof this.startX !== 'undefined') {
+      let endX = event.changedTouches[0].pageX
+
+      if (endX - this.startX) {
+        this.setState({ isShowMenu: true })
+      } else {
+        this.setState({ isShowMenu: false })
+      }
+
+      this.startX = 0
+    }
   }
 
   // 监听鼠标事件

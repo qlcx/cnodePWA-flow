@@ -47,7 +47,7 @@ main {
 
 /* 主体部分 */
 .container {
-  background: #e1e1e1;
+  background-color: #e1e1e1;
   width: 100vw;  
   margin: 15px auto;
   margin-top: 70px;
@@ -65,13 +65,14 @@ main {
   float: left;
 }
 .absoluteSider {
-  position: absolute;
+  position: fixed;
   width: 200px;
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #424242;
   z-index: 100;
+  background-color: #f7f7f7;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, .6);  
 }
 .absoluteSider > ul > li > a,
 .sider > ul > li > a {
@@ -86,9 +87,6 @@ main {
 .sider > ul > li > a > i {
   font-size: 2.4rem;
   margin-right: 20px;
-}
-.absoluteSider > ul > li > a {
-  color: #eee;
 }
 
 @media (max-width: 840px) {
