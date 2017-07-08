@@ -21,13 +21,25 @@
   width: 32px;
   height: 32px;
 }
+.large > div {
+  width: 11px;
+  height: 11px;
+}
 .default {
   width: 24px;
   height: 24px;
 }
+.default > div {
+  width: 9px;
+  height: 9px;
+}
 .small {
   width: 20px;
   height: 20px;
+}
+.small > div {
+  width: 6px;
+  height: 6px;
 }
 .spin-dot {
   position: relative;
@@ -37,29 +49,27 @@
   animation-timing-function: linear;
 }
 
-.spin-dot > i {
+.spin-dot > div {
   position: absolute;
   display: block;
-  width: 30%;
-  height: 30%;
   border-radius: 50%;
   background: #108ee9;
   
   animation-timing-function: linear;
 }
-.spin-dot > i:first-child {
+.spin-dot > div:first-child {
   top: 0; left: 0;
   animation: spinOpacity 1s infinite;
 }
-.spin-dot > i:nth-child(2) {
+.spin-dot > div:nth-child(2) {
   top: 0; right: 0;
   animation: spinOpacity 1.5s infinite;
 }
-.spin-dot > i:nth-child(3) {
+.spin-dot > div:nth-child(3) {
   bottom: 0; right: 0;
   animation: spinOpacity 2s infinite;
 }
-.spin-dot > i:last-child {
+.spin-dot > div:last-child {
   bottom: 0; left: 0;
   animation: spinOpacity 2.5s infinite;
 }

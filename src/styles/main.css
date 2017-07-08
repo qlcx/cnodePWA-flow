@@ -25,11 +25,11 @@ li {
 
 /* 自定义icon */
 @font-face {font-family: "iconfont";
-  src: url(../iconfont/iconfont.eot?t=1499312160381); /* IE9*/
-  src: url(../iconfont/iconfont.eot?t=1499312160381#iefix) format('embedded-opentype'), /* IE6-IE8 */
-  url(../iconfont/iconfont.woff?t=1499312160381) format('woff'), /* chrome, firefox */
-  url(../iconfont/iconfont.ttf?t=1499312160381) format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url(../iconfont/iconfont.svg?t=1499312160381#iconfont) format('svg'); /* iOS 4.1- */
+  src: url(../iconFont/iconfont.eot?t=1499312160381); /* IE9*/
+  src: url(../iconFont/iconfont.eot?t=1499312160381#iefix) format('embedded-opentype'), /* IE6-IE8 */
+  url(../iconFont/iconfont.woff?t=1499312160381) format('woff'), /* chrome, firefox */
+  url(../iconFont/iconfont.ttf?t=1499312160381) format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url(../iconFont/iconfont.svg?t=1499312160381#iconfont) format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {

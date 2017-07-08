@@ -17,10 +17,10 @@ export default class SpinnerComponent extends Component {
         <div className={styles.mask} />        
         <div className={styles.root}>
           <span className={spinStyle}>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
+            <div />
+            <div />
+            <div />
+            <div />
           </span>
         </div>
       </div>
