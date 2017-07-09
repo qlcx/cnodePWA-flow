@@ -63,13 +63,11 @@ export default class Layout extends Component {
     if (touchesCnt === 1 && typeof this.startX !== 'undefined') {
       let endX = event.changedTouches[0].pageX
 
-      if (endX - this.startX) {
+      if (endX - this.startX > 100) {
         this.setState({ isShowMenu: true })
       } else {
         this.setState({ isShowMenu: false })
       }
-
-      this.startX = 0
     }
   }
 

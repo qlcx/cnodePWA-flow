@@ -66,13 +66,13 @@ main {
 }
 .absoluteSider {
   position: fixed;
-  width: 200px;
   height: 100%;
+  width: 200px;
   top: 0;
   left: 0;
   z-index: 100;
   background-color: #f7f7f7;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, .6);  
+  box-shadow: 2px 0 10px rgba(0, 0, 0, .6);
 }
 .absoluteSider > ul > li > a,
 .sider > ul > li > a {
@@ -122,5 +122,5 @@ main {
     margin-left: 0;
     padding: 0 2%;
   }
-  .sider { display: none; }
+  .sider { display: none; width: 0 }
 }
