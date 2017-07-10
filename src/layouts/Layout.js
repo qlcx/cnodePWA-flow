@@ -26,6 +26,7 @@ export default class Layout extends Component {
     this.handleMouseDown = this.handleMouseDown.bind(this)
     this.handleTouchStart = this.handleTouchStart.bind(this)
     this.handleTouchMove = this.handleTouchMove.bind(this)
+    this.handleTouchEnd = this.handleTouchEnd.bind(this)
 
     this.state = {
       currentType: 'all',
@@ -38,12 +39,14 @@ export default class Layout extends Component {
     window.addEventListener('mousedown', this.handleMouseDown)
     window.addEventListener('touchstart', this.handleTouchStart)
     window.addEventListener('touchmove', this.handleTouchMove)
+    window.addEventListener('touchend', this.handleTouchEnd)
   }
 
   componentWillUnmount() {
     window.removeEventListener('mousedown', this.handleMouseDown)
     window.removeEventListener('touchstart', this.handleTouchStart)
     window.removeEventListener('touchmove', this.handleTouchMove)
+    window.removeEventListener('touchend', this.handleTouchEnd)
   }
 
   // 监听触摸开始事件
@@ -56,6 +59,20 @@ export default class Layout extends Component {
     }
   }
 
+  // 监听触摸结束事件
+  handleTouchEnd(event) {
+    if (this.state.isShowMenu) {
+     if (this.state.menuWidth >= 100) {
+        this.setState({ menuWidth: 200 })
+      } else {
+        this.setState({ 
+          menuWidth: 0,
+          isShowMenu: false,
+        })
+      }
+    }
+  }
+
   // 监听触摸移动事件
   handleTouchMove(event) {
     // 判断有几根手机
@@ -65,12 +82,14 @@ export default class Layout extends Component {
       let endX = event.changedTouches[0].pageX
 
       if (endX - this.startX > 0) {
-        this.setState({ 
-          isShowMenu: true,
-          menuWidth: endX - this.startX
+        this.setState(prevState => {
+          if (prevState.menuWidth < 200) {
+            return {
+              isShowMenu: true,
+              menuWidth: endX - this.startX
+            } 
+          }
         })
-      } else {
-        this.setState({ isShowMenu: false })
       }
     }
   }
