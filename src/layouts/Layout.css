@@ -69,10 +69,13 @@ main {
   height: 100%;
   width: 200px;
   top: 0;
-  left: 0;
+  left: -200px;
+  padding-top: 100px;
   z-index: 100;
   background-color: #f7f7f7;
   box-shadow: 2px 0 10px rgba(0, 0, 0, .6);
+
+  transition: left .5s;
 }
 .absoluteSider > ul > li > a,
 .sider > ul > li > a {

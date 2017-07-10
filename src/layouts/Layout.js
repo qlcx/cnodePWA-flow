@@ -30,6 +30,7 @@ export default class Layout extends Component {
     this.state = {
       currentType: 'all',
       isShowMenu: false,
+      menuWidth: 0,
     }
   }
 
@@ -63,8 +64,11 @@ export default class Layout extends Component {
     if (touchesCnt === 1 && typeof this.startX !== 'undefined') {
       let endX = event.changedTouches[0].pageX
 
-      if (endX - this.startX > 100) {
-        this.setState({ isShowMenu: true })
+      if (endX - this.startX > 0) {
+        this.setState({ 
+          isShowMenu: true,
+          menuWidth: endX - this.startX
+        })
       } else {
         this.setState({ isShowMenu: false })
       }
@@ -117,7 +121,9 @@ export default class Layout extends Component {
 
   renderSider() {
     return (
-      <div className={this.state.isShowMenu ? styles.absoluteSider : styles.sider}>
+      <div 
+        style={this.state.isShowMenu ? {left: this.state.menuWidth-200} : undefined}
+        className={this.state.isShowMenu ? styles.absoluteSider : styles.sider}>
         <ul>
           {
             topicTypes.map(data => {
