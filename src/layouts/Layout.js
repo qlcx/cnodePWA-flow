@@ -27,6 +27,7 @@ export default class Layout extends Component {
     this.handleTouchStart = this.handleTouchStart.bind(this)
     this.handleTouchMove = this.handleTouchMove.bind(this)
     this.handleTouchEnd = this.handleTouchEnd.bind(this)
+    this.handleResize = this.handleResize.bind(this)
 
     this.state = {
       currentType: 'all',
@@ -39,6 +40,7 @@ export default class Layout extends Component {
     window.addEventListener('touchstart', this.handleTouchStart)
     window.addEventListener('touchmove', this.handleTouchMove)
     window.addEventListener('touchend', this.handleTouchEnd)
+    window.addEventListener('resize', this.handleResize)
   }
 
   componentWillUnmount() {
@@ -46,6 +48,12 @@ export default class Layout extends Component {
     window.removeEventListener('touchstart', this.handleTouchStart)
     window.removeEventListener('touchmove', this.handleTouchMove)
     window.removeEventListener('touchend', this.handleTouchEnd)
+    window.removeEventListener('resize', this.handleResize)    
+  }
+
+  // 监听页面大小
+  handleResize(event) {
+    console.log(event)
   }
 
   // 监听触摸开始事件
