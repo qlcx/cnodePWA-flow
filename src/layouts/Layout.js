@@ -61,10 +61,10 @@ export default class Layout extends Component {
   // 监听触摸结束事件
   handleTouchEnd(event) {
     if (this.state.menuPosition <= -100) {
-      this.setState({ menuWidth: 0 })
+      this.setState({ menuPosition: -200 })
     } else {
       this.setState({ 
-        menuPosition: -200,
+        menuPosition: 0,
       })
     }
   }
@@ -79,7 +79,7 @@ export default class Layout extends Component {
       let endX = event.changedTouches[0].pageX
       let moveLen = endX - this.startX
 
-      if (moveLen < 0 && moveLen >= -200) {
+      if (moveLen < -50 && moveLen >= -200) {
         this.setState({ menuPosition: moveLen })
       } else if (moveLen > 0 && moveLen <= 200) {
         this.setState({ menuPosition: moveLen - 200 })
