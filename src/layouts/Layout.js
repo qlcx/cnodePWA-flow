@@ -32,6 +32,7 @@ export default class Layout extends Component {
     this.state = {
       currentType: 'all',
       menuPosition: -200,
+      isShowSider: window.innerWidth <= 600 ? false : true,
     }
   }
 
@@ -52,8 +53,13 @@ export default class Layout extends Component {
   }
 
   // 监听页面大小
-  handleResize(event) {
-    console.log(event)
+  handleResize() {
+    console.log(1111)
+    if (window.innerWidth <= 600) {
+      this.setState({ isShowSider: false })
+    } else {
+      this.setState({ isShowSider: true })
+    }
   }
 
   // 监听触摸开始事件
@@ -142,7 +148,7 @@ export default class Layout extends Component {
   renderSider() {
     return (
       <div 
-        style={{left: this.state.menuPosition}}
+        style={this.state.isShowSider ? undefined : {left: this.state.menuPosition}}
         className={styles.sider}>
         <ul>
           {
