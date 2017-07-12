@@ -30,8 +30,7 @@ export default class Layout extends Component {
 
     this.state = {
       currentType: 'all',
-      isShowMenu: false,
-      menuWidth: 0,
+      menuPosition: -200,
     }
   }
 
@@ -61,15 +60,12 @@ export default class Layout extends Component {
 
   // 监听触摸结束事件
   handleTouchEnd(event) {
-    if (this.state.isShowMenu) {
-     if (this.state.menuWidth >= 100) {
-        this.setState({ menuWidth: 200 })
-      } else {
-        this.setState({ 
-          menuWidth: 0,
-          isShowMenu: false,
-        })
-      }
+    if (this.state.menuPosition <= -100) {
+      this.setState({ menuWidth: 0 })
+    } else {
+      this.setState({ 
+        menuPosition: -200,
+      })
     }
   }
 
@@ -79,17 +75,14 @@ export default class Layout extends Component {
     let touchesCnt = event.changedTouches.length
 
     if (touchesCnt === 1 && typeof this.startX !== 'undefined') {
+      // 判断移动方向
       let endX = event.changedTouches[0].pageX
+      let moveLen = endX - this.startX
 
-      if (endX - this.startX > 0) {
-        this.setState(prevState => {
-          if (prevState.menuWidth < 200) {
-            return {
-              isShowMenu: true,
-              menuWidth: endX - this.startX
-            } 
-          }
-        })
+      if (moveLen < 0 && moveLen >= -200) {
+        this.setState({ menuPosition: moveLen })
+      } else if (moveLen > 0 && moveLen <= 200) {
+        this.setState({ menuPosition: moveLen - 200 })
       }
     }
   }
@@ -101,7 +94,7 @@ export default class Layout extends Component {
     let x = e.pageX || e.clientX + scrollX;
 
     if (x > 200) {
-      this.setState({ isShowMenu: false })
+      this.setState({ menuPosition: -200 })
     }
   }
 
@@ -126,7 +119,7 @@ export default class Layout extends Component {
         <div className={styles.tmTbod}>
           <img className={styles.imgLogo} src='https://cnodejs.org/public/images/cnodejs_light.svg' />
           <span className={styles.crumb}>全部</span>
-          <a className={styles.menu} onClick={() => this.setState({ isShowMenu: true })}>
+          <a className={styles.menu} onClick={() => this.setState({ menuPosition: 0 })}>
             <i className='iconfont icon-menu' />
           </a>
         </div>
@@ -141,8 +134,8 @@ export default class Layout extends Component {
   renderSider() {
     return (
       <div 
-        style={this.state.isShowMenu ? {left: this.state.menuWidth-200} : undefined}
-        className={this.state.isShowMenu ? styles.absoluteSider : styles.sider}>
+        style={{left: this.state.menuPosition}}
+        className={styles.sider}>
         <ul>
           {
             topicTypes.map(data => {

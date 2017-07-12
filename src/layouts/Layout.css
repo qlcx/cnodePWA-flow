@@ -120,10 +120,19 @@ main {
   }
 
   /* container */
-  .container { margin-top: 115px; }
+  .container { margin-top: 100px; }
   .content { 
     margin-left: 0;
-    padding: 0 2%;
+    padding: 0;
   }
-  .sider { display: none; width: 0 }
+  .sider {
+    top: 0;
+    left: -200px;
+    height: 100%;
+    width: 200px;
+    padding-top: 100px;
+    z-index: 100;
+    background-color: #f7f7f7;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, .6);
+  }
 }
