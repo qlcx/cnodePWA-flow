@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import styles from './Layout.css'
 
@@ -54,7 +55,6 @@ export default class Layout extends Component {
 
   // 监听页面大小
   handleResize() {
-    console.log(1111)
     if (window.innerWidth <= 600) {
       this.setState({ isShowSider: false })
     } else {
@@ -138,9 +138,9 @@ export default class Layout extends Component {
           </a>
         </div>
 
-        <a className={styles.avatar} onClick={() => console.log('login')}>
+        <Link className={styles.avatar} to='/user'>
           <i className='iconfont icon-login' />
-        </a>
+        </Link>
       </div>
     )
   }
