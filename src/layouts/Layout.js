@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom'
 import styles from './Layout.css'
 
 const topicTypes = [{
-  type: 'all', icon: 'icon-quanbu', name: '全部'
+  type: 'all', icon: 'icon-quanbu', name: '全部', link: '/'
 },{
-  type: 'best', icon: 'icon-huo', name: '精华'
+  type: 'best', icon: 'icon-huo', name: '精华', link: '/aboute1'
 },{
-  type: 'share', icon: 'icon-fenxiang', name: '分享'
+  type: 'share', icon: 'icon-fenxiang', name: '分享', link: '/aboute'
 },{
-  type: 'answer', icon: 'icon-wenda', name: '问答'  
+  type: 'answer', icon: 'icon-wenda', name: '问答', link: '/aboute'  
 },{
-  type: 'recruit', icon: 'icon-zhaopin', name: '招聘'  
+  type: 'recruit', icon: 'icon-zhaopin', name: '招聘', link: '/aboute'  
 },{
-  type: 'about', icon: 'icon-guanyu', name: '关于'  
+  type: 'about', icon: 'icon-guanyu', name: '关于', link: '/aboute'  
 }]
 
 export default class Layout extends Component {
@@ -159,10 +159,10 @@ export default class Layout extends Component {
               }
 
               return <li key={data.type}>
-                <a href='#' onClick={() => this.setState({ currentType: data.type })}>
+                <Link to={data.link} onClick={() => this.setState({ currentType: data.type })}>
                   <i className={`iconfont ${data.icon} ${fontStyle}`} />
                   <span className={fontStyle}>{data.name}</span>
-                </a>
+                </Link>
               </li>
             })
           }
