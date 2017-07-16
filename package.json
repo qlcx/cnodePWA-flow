@@ -27,6 +27,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bluebird": "^3.5.0",
+    "instascan": "^1.0.0",
     "moment": "^2.18.1",
     "qs": "^6.5.0",
     "react": "^15.6.1",

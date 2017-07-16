@@ -19,6 +19,7 @@ module.exports = {
 
   devServer: {
     hot: true,
+    https: true,
     contentBase: resolve(__dirname, 'dist'),
     publicPath: '/',
     compress: true,
@@ -54,6 +55,9 @@ module.exports = {
         'css-loader?sourceMap'
       ]
     }]
+  },
+  node: {
+    fs: 'empty'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

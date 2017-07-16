@@ -29,5 +29,12 @@ fetchData.get = (url: string) => {
 
 // post
 fetchData.post = (url: string) => {
+  const reqURL: string = `${httpPrefix}${url}`
 
+  return axios.post(reqURL).then((res: ResHttp) => {
+    let resData: GetResObj = res.data
+    return Promise.resolve(resData)
+  }).catch((e: string) => {
+    return Promise.reject(e)
+  })
 }
