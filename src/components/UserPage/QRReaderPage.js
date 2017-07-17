@@ -3,9 +3,20 @@ import QrReader from 'react-qr-reader'
 
 import ModalComponent from '../BasicComponent/ModalComponent'
 
-const previewStyle = {
-  width: '100%',
-  objectFit: 'fill',
+const styles = {
+  // 摄像预览
+  previewStyle: {
+    width: '100%',
+    objectFit: 'fill',
+  },
+
+  // modal正文
+  modalContentStyle: {
+    display: 'block',
+    fontWeight: 'bold',
+    padding: '10px 0',
+    fontSize: '1.5rem',
+  }
 }
 
 export default class QRReaderPage extends Component {
@@ -53,7 +64,7 @@ export default class QRReaderPage extends Component {
       <QrReader
         facingMode='rear'
         delay={this.state.delay}
-        style={previewStyle}
+        style={styles.previewStyle}
         onError={this.handleError}
         onScan={this.handleScan}
         /> 
@@ -63,10 +74,11 @@ export default class QRReaderPage extends Component {
   renderModal() {
     if (this.props.modalVisible) {
       return <ModalComponent 
-        titleInfo='是否确认登录?'
         visible={this.props.modalVisible}
         onCancel={this.modalCancel}
-        onConfirm={this.modalConfirm} /> 
+        onConfirm={this.modalConfirm}>
+        <span style={styles.modalContentStyle}>是否确认登录？</span>
+      </ModalComponent>
     } else {
       return null
     }

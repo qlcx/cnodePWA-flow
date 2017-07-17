@@ -5,7 +5,7 @@ import styles from './ModalComponent.css'
 
 export default class ModalComponent extends Component {
   render() {
-    const { titleInfo, footer, modalWidth, visible } = this.props
+    const { footer, modalWidth, visible } = this.props
 
     if (!visible) {
       return <div />
@@ -14,13 +14,27 @@ export default class ModalComponent extends Component {
     return <div 
       style={modalWidth ? {width: modalWidth} : {width: 400}} 
       className={styles.root}>
-      <div className={styles.modalHeader}>
-        {titleInfo}
-      </div>
+
+      {this.renderDefaultHeader()}
+
       <div className={styles.modalContent}>
          {this.props.children} 
       </div>
+
       {footer ? footer : this.renderDefaultFooter()}
+
+    </div>
+  }
+
+  renderDefaultHeader() {
+    const { titleInfo } = this.props
+    
+    if (!titleInfo) {
+       return <div />
+    }
+
+    return <div className={styles.modalHeader}>
+      {titleInfo}
     </div>
   }
 

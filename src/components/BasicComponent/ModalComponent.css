@@ -26,3 +26,9 @@
   float: right;
 }
 
+@media (max-width: 600px) {
+  .root {
+    width: 90% !important;
+    top: 25%;
+  }
+}
