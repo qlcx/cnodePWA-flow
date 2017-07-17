@@ -20,7 +20,7 @@ const styles = {
 }
 
 export default class QRReaderPage extends Component {
- constructor(props){
+ constructor(props) {
     super(props)
 
     this.handleScan = this.handleScan.bind(this)
