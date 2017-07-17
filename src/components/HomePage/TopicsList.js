@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import moment from 'moment'
+import { Link } from 'react-router-dom'
 
 import SpinnerComponent from '../BasicComponent/SpinnerComponent'
 import styles from './TopicsList.css'
@@ -37,9 +38,9 @@ class TopicsList extends Component {
 
       {this.renderTopicTag(topicData.tab, topicData.top)}
 
-      <a href='#' className={styles.topicTitle}>
+      <Link className={styles.topicTitle} to={`/topics/${topicData.id}`}>
         {topicData.title}
-      </a>
+      </Link>
 
       <span className={styles.topicLastReply}>
         {moment(topicData.last_reply_at).fromNow()}
