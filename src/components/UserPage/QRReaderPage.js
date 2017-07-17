@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import QrReader from 'react-qr-reader'
+import { withRouter } from 'react-router-dom'
 
 import ModalComponent from '../BasicComponent/ModalComponent'
 
@@ -19,7 +20,7 @@ const styles = {
   }
 }
 
-export default class QRReaderPage extends Component {
+class QRReaderPage extends Component {
  constructor(props) {
     super(props)
 
@@ -44,6 +45,7 @@ export default class QRReaderPage extends Component {
   }
 
   modalCancel() {
+    this.props.history.push('/')
     this.props.setUserModalSta(false)
   }
 
@@ -84,3 +86,5 @@ export default class QRReaderPage extends Component {
     }
   }
 }
+
+export default withRouter(QRReaderPage)
