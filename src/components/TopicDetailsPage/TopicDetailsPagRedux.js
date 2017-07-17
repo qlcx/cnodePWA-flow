@@ -17,7 +17,7 @@ export const getTopicDetails = topicID => {
     fetchData.get(`/topic/${topicID}`).then(res => {
       dispatch({
         type: GET_TOPIC_DETAILS,
-        topicDetails: res.data
+        topicDetails: res
       })
     }).catch(e => {
       console.log(e)

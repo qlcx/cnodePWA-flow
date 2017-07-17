@@ -31,9 +31,9 @@ const router = () => (
     <Router>
       <Switch>
         <Route path='/' exact component={AppLayout(HomePage)} />
+        <Route path='/topics/:id' component={AppLayout(TopicDetailsPage)} />
         <Route path='/aboute' component={AppLayout(AboutePage)} />
         <Route path='/user' component={UserPage} />
-        <Route path='/topics/:id' component={TopicDetailsPage} />
         <Route component={NoRoute} />
       </Switch>
     </Router>

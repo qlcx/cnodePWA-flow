@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 import topicDetailsPageReducer, {
   getTopicDetails
-} from '../components/TopicDetailsPage/TopicDetailsPageRedux'
+} from '../components/TopicDetailsPage/TopicDetailsPagRedux'
 
 export default combineReducers({
   topicDetailsPageReducer
