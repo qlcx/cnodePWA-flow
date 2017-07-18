@@ -8,6 +8,8 @@ import ReplyInfo from '../components/TopicDetailsPage/ReplyInfo'
 
 import { actions } from './TopicDetailsPageRedux'
 
+import * as utils from '../utils'
+
 class TopicDetailsPage extends Component {
   constructor(props) {
     super(props)
@@ -22,15 +24,32 @@ class TopicDetailsPage extends Component {
   }
 
   render() {
-    const { state } = this.props
-    
+    const { topicDetails } = this.props.state
+    const authorName = topicDetails.author.loginname
+    const tag = utils.setTopicTag({tab: topicDetails.tab, isGood: topicDetails.good, isTop: topicDetails.top})
+
     const topicParams = {
-      content: state.topicDetails.content, //正文
+      header: {
+        // 标题
+        title: topicDetails.title,
+        // 创建时间
+        createTime: topicDetails.create_at,
+        // 作者
+        authorName: authorName,
+        // 标签
+        tag: tag,
+        // 访问数
+        visitNum: topicDetails.visit_count,
+      },
+      // 正文
+      content: topicDetails.content,
     }
 
     return <div>
       <TopicInfo {...topicParams} />
-      <ReplyInfo replyList={state.topicDetails.replies} />
+      <ReplyInfo 
+        replyList={topicDetails.replies}
+        replyNum={topicDetails.reply_count} />
     </div>
   }
 }

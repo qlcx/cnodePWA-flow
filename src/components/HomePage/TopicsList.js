@@ -5,11 +5,7 @@ import { Link } from 'react-router-dom'
 import SpinnerComponent from '../BasicComponent/SpinnerComponent'
 import styles from './TopicsList.css'
 
-// 标签转换
-const TagsMap = new Map()
-TagsMap.set('share', '分享')
-TagsMap.set('ask', '问答')
-TagsMap.set('top', '置顶')
+import * as utils from '../../utils'
 
 class TopicsList extends Component {
   render() {
@@ -36,7 +32,7 @@ class TopicsList extends Component {
           title={topicData.author.loginname} />
       </a>
 
-      {this.renderTopicTag(topicData.tab, topicData.top)}
+      {this.renderTopicTag(topicData.tab, topicData.good, topicData.top)}
 
       <Link className={styles.topicTitle} to={`/topics/${topicData.id}`}>
         {topicData.title}
@@ -49,20 +45,19 @@ class TopicsList extends Component {
   }
 
   // 渲染话题标签
-  renderTopicTag(tag, isTop) {
-    let tagName = TagsMap.get(tag)
+  renderTopicTag(tab, isGood, isTop) {
+    let tag = utils.setTopicTag({tab, isGood, isTop})
 
     let tagClasses = `${styles.topicTag} `
-    // 显示置顶标签
-    if (isTop) {
-      tagName = TagsMap.get('top')
-      tagClasses += `${styles.topicTagTop}`
+    // 显示置顶&精华标签
+    if (isTop || isGood) {
+      tagClasses += `${styles.topicTagToporGood}`
     }
 
     // 如果没有标签数据则不显示
-    if (!tag) return <span />
+    if (!tab) return <span />
 
-    return <span className={tagClasses}>{tagName}</span>
+    return <span className={tagClasses}>{tag}</span>
   }
 }
 

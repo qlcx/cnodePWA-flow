@@ -1,5 +1,31 @@
-.root {
+.header,
+.content {
+  padding: 1rem 4rem 2rem 4rem;
   background-color: #fff;
-  padding: 2rem 4rem;
-  border-radius: .2rem;
+}
+
+/* 标题 */
+.header {
+  border-top-left-radius: .2rem;
+  border-top-right-radius: .2rem;
+  border-bottom: 1px solid #E0E0E0;
+}
+.header .titleSection {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.3rem;
+  line-height: 3rem;
+  padding: .5rem 0;
+}
+.header span {
+  font-size: 2.2rem;
+  color: #424242;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* 正文 */
+.content {
+  border-bottom-left-radius: .2rem;
+  border-bottom-right-radius: .2rem;
 }
