@@ -1,0 +1,40 @@
+/* 回复数 */
+.replyNum {
+  font-size: 1.4rem;
+  color: #424242;
+  background-color: #F5F5F5;
+  padding: 1rem 1.5rem;
+  border-top-left-radius: .2rem;
+  border-top-right-radius: .2rem;
+}
+
+/* 回复列表 */
+.replyList {
+  background-color: #fff;
+  padding: 1rem 1.5rem 0 1.5rem; 
+  border-bottom: 1px solid #EEEEEE;  
+}
+.replyList:last-child {
+  border-bottom-left-radius: .2rem;
+  border-bottom-right-radius: .2rem;
+}
+/* 用户信息 */
+.userInfo {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+.userInfo .avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: .2rem;
+}
+.userInfo span {
+  margin-left: 1rem;
+}
+
+/* 回复信息 */
+.replyInfo {
+  margin-top: .2rem;
+  margin-left: calc(30px + 1rem);
+}
