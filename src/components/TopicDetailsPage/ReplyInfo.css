@@ -11,7 +11,7 @@
 /* 回复列表 */
 .replyList {
   background-color: #fff;
-  padding: 1rem 1.5rem 0 1.5rem; 
+  padding: 1rem 1.5rem 0 0; 
   border-bottom: 1px solid #EEEEEE;  
 }
 .replyList:last-child {
@@ -20,21 +20,42 @@
 }
 /* 用户信息 */
 .userInfo {
+  position: relative;
   display: flex;
   align-items: center;
   font-size: 1.3rem;
+}
+.userInfo .no {
+  margin: 0 .6rem;
+  color: #9E9E9E;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 .userInfo .avatar {
   height: 30px;
   width: 30px;
   border-radius: .2rem;
 }
-.userInfo span {
+.userInfo .loginname {
   margin-left: 1rem;
+}
+.userInfo .opt {
+  position: absolute;
+  right: .2rem;
+}
+.userInfo .opt i {
+  font-size: 1.8rem;
+  margin-left: 2rem;
+}
+.userInfo .opt i:hover {
+  color: #616161;
+}
+.userInfo .opt span {
+  font-size: 1.4rem;
+  margin-left: .2rem;
 }
 
 /* 回复信息 */
 .replyInfo {
-  margin-top: .2rem;
-  margin-left: calc(30px + 1rem);
+  margin: .4rem 1.2rem 0 2.2rem;
 }
