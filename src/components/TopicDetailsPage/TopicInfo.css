@@ -1,27 +1,37 @@
 .header,
 .content {
-  padding: 1rem 4rem 2rem 4rem;
+  padding: 1rem 2.5rem 2rem 2.5rem;
   background-color: #fff;
 }
 
 /* 标题 */
 .header {
+  padding: .5rem 1.5rem 1rem 1.5rem;
   border-top-left-radius: .2rem;
   border-top-right-radius: .2rem;
   border-bottom: 1px solid #E0E0E0;
 }
 .header .titleSection {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   font-size: 1.3rem;
-  line-height: 3rem;
   padding: .5rem 0;
+  margin-bottom: .8rem;
 }
-.header span {
+.header .tag {
+  background-color: #80bd01;
+  color: #fff;
+  border-radius: .2rem;
+  padding: .2rem .5rem;
+}
+.header .title {
   font-size: 2.2rem;
   color: #424242;
   font-weight: 600;
-  margin-left: 8px;
+}
+
+.topicInfo {
+  margin-left: 1rem;
 }
 
 /* 正文 */

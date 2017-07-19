@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 import TopicInfo from '../components/TopicDetailsPage/TopicInfo'
 import ReplyInfo from '../components/TopicDetailsPage/ReplyInfo'
+import SpinnerComponent from '../components/BasicComponent/SpinnerComponent'
 
 import { actions } from './TopicDetailsPageRedux'
 
@@ -24,9 +25,10 @@ class TopicDetailsPage extends Component {
   }
 
   render() {
+    const { state } = this.props
     const { topicDetails } = this.props.state
-    const authorName = topicDetails.author.loginname
-    const tag = utils.setTopicTag({tab: topicDetails.tab, isGood: topicDetails.good, isTop: topicDetails.top})
+    const authorName = topicDetails.author ? topicDetails.author.loginname : ''
+    const tag = (topicDetails.good || topicDetails.top) && utils.setTopicTag({tab: topicDetails.tab, isGood: topicDetails.good, isTop: topicDetails.top})
 
     const topicParams = {
       header: {
@@ -43,6 +45,12 @@ class TopicDetailsPage extends Component {
       },
       // 正文
       content: topicDetails.content,
+    }
+
+    if (state.fetchLoading) {
+      return <div style={{position: 'relative'}}>
+        <SpinnerComponent />
+      </div>
     }
 
     return <div>
