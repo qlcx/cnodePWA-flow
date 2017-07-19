@@ -40,3 +40,23 @@
   border-bottom-right-radius: .2rem;
   margin-bottom: 2rem;
 }
+
+@media(max-width: 600px) {
+  .header .title {
+    font-size: 2.2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .header .tag { display: none } 
+  .topicInfo { font-size: 1.25rem; }
+
+  /* 正文 */
+  .content {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+  .content h1 {
+    font-size: 2.2rem;
+  }
+}

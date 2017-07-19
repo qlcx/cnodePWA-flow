@@ -679,3 +679,7 @@
 .markdown-body hr {
   border-bottom-color: #eee;
 }
+
+.markdown-body p {
+  margin-bottom: 1rem;
+}

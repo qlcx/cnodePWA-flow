@@ -57,5 +57,18 @@
 
 /* 回复信息 */
 .replyInfo {
-  margin: .4rem 1.2rem 0 2.2rem;
+  margin: 1rem 1.2rem 0 2.5rem;
+}
+
+@media(max-width: 600px) {
+  /* 回复信息 */
+  .replyInfo {
+    font-size: 1.4rem;
+    margin: 1rem 1.2rem 0 2.8rem;
+  }
+
+  /* 点赞icon */
+  .userInfo .opt i {
+    font-size: 1.4rem;
+  }
 }
