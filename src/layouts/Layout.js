@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import styles from './Layout.css'
 
 const topicTypes = [{
-  type: 'all', icon: 'icon-quanbu', name: '全部', link: '/'
+  type: 'all', icon: 'icon-quanbu', name: '全部', link: '/#'
 },{
   type: 'best', icon: 'icon-huo', name: '精华', link: '/aboute1'
 },{

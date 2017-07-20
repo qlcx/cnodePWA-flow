@@ -44,7 +44,7 @@
   right: .2rem;
 }
 .userInfo .opt i {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   margin-left: 2rem;
 }
 .userInfo .opt i:hover {
@@ -68,7 +68,7 @@
   }
 
   /* 点赞icon */
-  .userInfo .opt i {
+  /* .userInfo .opt i {
     font-size: 1.4rem;
-  }
+  } */
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import reduxThunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Layout from './layouts/Layout'
 import HomePage from './views/HomePage'
