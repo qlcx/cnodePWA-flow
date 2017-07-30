@@ -29,11 +29,14 @@ export default class Layout extends Component {
     this.handleTouchMove = this.handleTouchMove.bind(this)
     this.handleTouchEnd = this.handleTouchEnd.bind(this)
     this.handleResize = this.handleResize.bind(this)
+    this.handleScroll = this.handleScroll.bind(this)
 
     this.state = {
       currentType: 'all',
       menuPosition: -200,
       isShowSider: window.innerWidth <= 600 ? false : true,
+      headerStyle: styles.header,
+      containerStyle: styles.container,
     }
   }
 
@@ -43,6 +46,7 @@ export default class Layout extends Component {
     window.addEventListener('touchmove', this.handleTouchMove)
     window.addEventListener('touchend', this.handleTouchEnd)
     window.addEventListener('resize', this.handleResize)
+    window.addEventListener('scroll', this.handleScroll)
   }
 
   componentWillUnmount() {
@@ -51,6 +55,31 @@ export default class Layout extends Component {
     window.removeEventListener('touchmove', this.handleTouchMove)
     window.removeEventListener('touchend', this.handleTouchEnd)
     window.removeEventListener('resize', this.handleResize)    
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  // 处理页面滚动事件
+  handleScroll(event) {
+    // 页面宽度<=600时处理滚动事件
+    if (!this.state.isShowSider) {
+      // 函数去抖
+      let onScrollTop = document.body.scrollTop
+
+      if (this.prevScrollPos && this.prevScrollPos > onScrollTop) {
+        this.setState({ 
+          headerStyle: styles.header,
+          containerStyle: styles.container 
+        })
+      } else if (this.prevScrollPos) {
+        console.log('down')
+        this.setState({ 
+          headerStyle: styles['header-hide'],
+          containerStyle: styles['container-topBlankHide'] 
+        })
+      }
+
+      this.prevScrollPos = onScrollTop
+    }
   }
 
   // 监听页面大小
@@ -117,7 +146,7 @@ export default class Layout extends Component {
       <main>
         {this.renderHeader()}
         
-        <div className={styles.container}>
+        <div className={this.state.containerStyle}>
           {this.renderSider()}
           <div className={styles.content}>
             {this.props.children}
@@ -129,7 +158,7 @@ export default class Layout extends Component {
 
   renderHeader() {
     return (
-      <div className={styles.header}>
+      <div className={this.state.headerStyle}>
         <div className={styles.tmTbod}>
           <img className={styles.imgLogo} src='https://cnodejs.org/public/images/cnodejs_light.svg' />
           <span className={styles.crumb}>全部</span>

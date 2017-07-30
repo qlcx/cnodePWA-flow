@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["favicon.ico","2f0080a8f4365418b27cabfb1f7f0ab3"],["index.html","5ef155ec6a05ba7d5a26c52cc2e4bb70"],["main.js","e70988ecd46146cb4526fab9dda046ca"],["manifest.js","99cc7ee15e6bd2ab5f0f16e07630a3e0"],["manifest.json","fe96e233249f006812b326aa2066d5f3"],["styles.css","cb619c23751b9298f3b49ea115a9a049"],["vendor.js","848eba30d2396e3c52b1d78e2c218299"]];
+var precacheConfig = [["favicon.ico","2f0080a8f4365418b27cabfb1f7f0ab3"],["index.html","5ef155ec6a05ba7d5a26c52cc2e4bb70"],["main.js","a3dec0c6f2ff1a9f1fc0f68b63bb2a24"],["manifest.js","99cc7ee15e6bd2ab5f0f16e07630a3e0"],["manifest.json","fe96e233249f006812b326aa2066d5f3"],["styles.css","b595890c59abe852405dfe31103cbf86"],["vendor.js","4f2ff1a7592c0dfa52b1748e68ffef14"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 

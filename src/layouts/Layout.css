@@ -16,6 +16,9 @@ main {
   color: #fff;
   box-shadow: 2px 0 15px rgba(0,0,0,.8);
 }
+.header-hide {
+   display: none; 
+}
 
 /* logo */
 .tmTbod {
@@ -52,6 +55,9 @@ main {
   width: 100vw;  
   margin: 15px auto;
   margin-top: 70px;
+}
+.container-topBlankHide {
+  margin-top: 10px;
 }
 .content {
   padding: 0 5%;
