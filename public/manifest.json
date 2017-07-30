@@ -3,13 +3,18 @@
   "name": "cnodePWA",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "192x192",
+      "src": "splashScreen-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "splashScreen-512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#ffffff",
-  "background_color": "#000000"
+  "background_color": "#444"
 }

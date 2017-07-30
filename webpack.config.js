@@ -4,7 +4,7 @@ const { resolve } = require('path')
 module.exports = {
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://192.168.2.146:8080',
+    'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     './src/index.js'
   ],
@@ -19,12 +19,12 @@ module.exports = {
 
   devServer: {
     hot: true,
-    https: true,
+    // https: true,
     contentBase: resolve(__dirname, 'dist'),
     publicPath: '/',
     compress: true,
-    host: '192.168.2.146',
-    public: '192.168.2.146:8080',
+    host: 'localhost',
+    public: 'localhost:8080',
   },
 
   module: {

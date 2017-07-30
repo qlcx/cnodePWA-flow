@@ -67,7 +67,6 @@ export default class Layout extends Component {
       if (this.prevScrollPos && this.prevScrollPos > onScrollTop) {
         this.setState({ isShowheader: true })
       } else if (this.prevScrollPos) {
-        console.log('down')
         this.setState({ isShowheader: false })
       }
 
@@ -80,7 +79,10 @@ export default class Layout extends Component {
     if (window.innerWidth <= 600) {
       this.setState({ isShowSider: false })
     } else {
-      this.setState({ isShowSider: true })
+      this.setState({ 
+        isShowSider: true,
+        isShowheader: true,
+      })
     }
   }
 
