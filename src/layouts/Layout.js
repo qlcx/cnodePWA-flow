@@ -65,11 +65,16 @@ export default class Layout extends Component {
       let onScrollTop = document.body.scrollTop
 
       if (this.prevScrollPos && this.prevScrollPos > onScrollTop) {
-        this.setState({ isShowheader: true })
+        this.scrollDirection = 'up'
       } else if (this.prevScrollPos) {
-        this.setState({ isShowheader: false })
+        this.scrollDirection = 'down'
       }
 
+      if (this.scrollDirection && this.prevScrollDirection !== this.scrollDirection) {
+        this.setState({ isShowheader: this.scrollDirection === 'up' ? true : false })
+      }
+
+      this.prevScrollDirection = this.scrollDirection
       this.prevScrollPos = onScrollTop
     }
   }

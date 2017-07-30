@@ -7,7 +7,7 @@ module.exports = {
     handler: 'cacheFirst'
   },{
     urlPattern: /avatar/,
-    handler: 'cacheFirst',
+    handler: 'fastest',
   }]
 }
 
