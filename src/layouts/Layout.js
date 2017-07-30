@@ -58,7 +58,7 @@ export default class Layout extends Component {
   }
 
   // 处理页面滚动事件
-  handleScroll(event) {
+  handleScroll() {
     // 页面宽度<=600时处理滚动事件
     if (!this.state.isShowSider) {
       // 函数去抖
