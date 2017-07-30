@@ -35,8 +35,7 @@ export default class Layout extends Component {
       currentType: 'all',
       menuPosition: -200,
       isShowSider: window.innerWidth <= 600 ? false : true,
-      headerStyle: styles.header,
-      containerStyle: styles.container,
+      isShowheader: true,
     }
   }
 
@@ -66,16 +65,10 @@ export default class Layout extends Component {
       let onScrollTop = document.body.scrollTop
 
       if (this.prevScrollPos && this.prevScrollPos > onScrollTop) {
-        this.setState({ 
-          headerStyle: styles.header,
-          containerStyle: styles.container 
-        })
+        this.setState({ isShowheader: true })
       } else if (this.prevScrollPos) {
         console.log('down')
-        this.setState({ 
-          headerStyle: styles['header-hide'],
-          containerStyle: styles['container-topBlankHide'] 
-        })
+        this.setState({ isShowheader: false })
       }
 
       this.prevScrollPos = onScrollTop
@@ -146,7 +139,7 @@ export default class Layout extends Component {
       <main>
         {this.renderHeader()}
         
-        <div className={this.state.containerStyle}>
+        <div className={this.state.isShowheader ? styles.container : styles['container-topBlankHide']}>
           {this.renderSider()}
           <div className={styles.content}>
             {this.props.children}
@@ -158,7 +151,7 @@ export default class Layout extends Component {
 
   renderHeader() {
     return (
-      <div className={this.state.headerStyle}>
+      <div className={this.state.isShowheader ? styles.header : styles['header-hide']}>
         <div className={styles.tmTbod}>
           <img className={styles.imgLogo} src='https://cnodejs.org/public/images/cnodejs_light.svg' />
           <span className={styles.crumb}>全部</span>
