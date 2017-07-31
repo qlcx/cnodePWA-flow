@@ -3,6 +3,7 @@ import moment from 'moment'
 import { Link } from 'react-router-dom'
 
 import SpinnerComponent from '../BasicComponent/SpinnerComponent'
+import ImgLazyLoad from '../Shared/ImgLazyLoad'
 import styles from './TopicsList.css'
 
 import * as utils from '../../utils'
@@ -13,15 +14,11 @@ class TopicsList extends Component {
 
     this.handleScroll = this.handleScroll.bind(this)
     this.getWindowSize = this.getWindowSize.bind(this)
-    this.handleLazyLoad = this.handleLazyLoad.bind(this)
 
-    // img refs
-    this.imgRefs = []
     this.prevScrollPos = 0
 
     this.state = {
       windowHeight: window.innerHeight,
-      imgCurrentLoadingPos: 0,
     }
   }
 
@@ -33,10 +30,6 @@ class TopicsList extends Component {
   componentWillUnmount() {
     window.removeEventListener('resize', this.getWindowSize)
     window.removeEventListener('scroll', this.handleScroll)
-  }
-
-  componentDidMount() {
-    this.handleLazyLoad()
   }
 
   // 获取页面高度
@@ -53,26 +46,9 @@ class TopicsList extends Component {
     if (this.prevScrollPos < onScrollTop) {
       // loading图片
       this.setState({ windowHeight: onScrollTop - this.prevScrollPos + this.state.windowHeight })
-
-      this.handleLazyLoad()
     }
 
     this.prevScrollPos = onScrollTop
-  }
-
-  handleLazyLoad() {
-    const { imgCurrentLoadingPos } = this.state
-    let imgRefsLen = this.imgRefs.length 
-    let imgPos = imgCurrentLoadingPos
-
-    if (imgRefsLen && imgPos < imgRefsLen) {
-      for (let i = imgPos; this.imgRefs[i] && this.imgRefs[i].y < this.state.windowHeight && i < imgRefsLen; i++) {
-        this.imgRefs[i].src = this.imgRefs[i].attributes['data-src'].value
-        imgPos = i
-      }
-
-      this.setState({ imgCurrentLoadingPos:  imgPos })
-    }
   }
 
   render() {
@@ -93,12 +69,16 @@ class TopicsList extends Component {
   renderTopicItem(topicData, i) {
     return <li key={topicData.id} className={styles.listGroupItem}>
       <a href='#'>
-        <img
+        {/* <img
           ref={ ref => {this.imgRefs[i] = ref} }
           className={styles.avatar}
           src={null}
           data-src={topicData.author.avatar_url} 
-          title={topicData.author.loginname} />
+          title={topicData.author.loginname} /> */}
+          <ImgLazyLoad 
+            avatar_url={topicData.author.avatar_url} 
+            loginname={topicData.author.loginname}
+            windowHeight={this.state.windowHeight} />
       </a>
 
       {this.renderTopicTag(topicData.tab, topicData.good, topicData.top)}
