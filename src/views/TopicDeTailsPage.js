@@ -4,8 +4,11 @@ import { bindActionCreators } from 'redux'
 import { withRouter } from 'react-router-dom'
 
 import TopicInfo from '../components/TopicDetailsPage/TopicInfo'
-import ReplyInfo from '../components/TopicDetailsPage/ReplyInfo'
 import SpinnerComponent from '../components/BasicComponent/SpinnerComponent'
+// 回复列表
+import ReplyInfo from '../components/TopicDetailsPage/ReplyInfo'
+import handleScrollEvent from '../components/Shared/handleScrollEvent'
+const ReplyInfoComponent = handleScrollEvent(ReplyInfo)
 
 import { actions } from './TopicDetailsPageRedux'
 
@@ -55,7 +58,7 @@ class TopicDetailsPage extends Component {
 
     return <div>
       <TopicInfo {...topicParams} />
-      <ReplyInfo 
+      <ReplyInfoComponent 
         replyList={topicDetails.replies}
         replyNum={topicDetails.reply_count} />
     </div>

@@ -12,43 +12,7 @@ class TopicsList extends Component {
   constructor(props) {
     super(props)
 
-    this.handleScroll = this.handleScroll.bind(this)
-    this.getWindowSize = this.getWindowSize.bind(this)
-
-    this.prevScrollPos = 0
-
-    this.state = {
-      windowHeight: window.innerHeight,
-    }
-  }
-
-  componentWillMount() {
-    window.addEventListener('resize', this.getWindowSize)
-    window.addEventListener('scroll', this.handleScroll)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.getWindowSize)
-    window.removeEventListener('scroll', this.handleScroll)
-  }
-
-  // 获取页面高度
-  getWindowSize() {
-    this.setState({ windowHeight: window.innerHeight })
-  }
-
-  // 处理滚动事件
-  handleScroll() {
-    const { windowHeight } = this.state
-    // 距离页面顶部高度
-    let onScrollTop = document.body.scrollTop
-
-    if (this.prevScrollPos < onScrollTop) {
-      // loading图片
-      this.setState({ windowHeight: onScrollTop - this.prevScrollPos + this.state.windowHeight })
-    }
-
-    this.prevScrollPos = onScrollTop
+    this.renderTopicItem = this.renderTopicItem.bind(this)
   }
 
   render() {
@@ -69,16 +33,11 @@ class TopicsList extends Component {
   renderTopicItem(topicData, i) {
     return <li key={topicData.id} className={styles.listGroupItem}>
       <a href='#'>
-        {/* <img
-          ref={ ref => {this.imgRefs[i] = ref} }
-          className={styles.avatar}
-          src={null}
-          data-src={topicData.author.avatar_url} 
-          title={topicData.author.loginname} /> */}
-          <ImgLazyLoad 
-            avatar_url={topicData.author.avatar_url} 
-            loginname={topicData.author.loginname}
-            windowHeight={this.state.windowHeight} />
+        <ImgLazyLoad
+          classname={styles.avatar} 
+          avatar_url={topicData.author.avatar_url} 
+          loginname={topicData.author.loginname}
+          windowHeight={this.props.windowHeight} />
       </a>
 
       {this.renderTopicTag(topicData.tab, topicData.good, topicData.top)}

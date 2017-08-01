@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["favicon.ico","2f0080a8f4365418b27cabfb1f7f0ab3"],["index.html","0745ac2f28800dc3b44e23b6090dd52d"],["main.js","7e0220d91b0160483dd22bcf76363e79"],["manifest.js","99cc7ee15e6bd2ab5f0f16e07630a3e0"],["manifest.json","0379c1511315b747cdd906932a1f67f2"],["splashScreen-144.png","83d4c96b32763f34f1874260babff6ec"],["splashScreen-512.png","39dc7387c55b07dd2ca6c21ae88db3cf"],["styles.css","7f0d74a6b07b2c06a49ab2ee5aa07c42"],["sw-precache-config.js","8d55270b164e8d9efdcdca01c893aaff"],["vendor.js","4f2ff1a7592c0dfa52b1748e68ffef14"]];
+var precacheConfig = [["favicon.ico","2f0080a8f4365418b27cabfb1f7f0ab3"],["index.html","8854557ff97fd047201bbd39d7ba4b9b"],["main.js","91095389bc85638a9d8d58e57f297195"],["manifest.js","99cc7ee15e6bd2ab5f0f16e07630a3e0"],["manifest.json","0379c1511315b747cdd906932a1f67f2"],["splashScreen-144.png","83d4c96b32763f34f1874260babff6ec"],["splashScreen-512.png","39dc7387c55b07dd2ca6c21ae88db3cf"],["styles.css","7f0d74a6b07b2c06a49ab2ee5aa07c42"],["sw-precache-config.js","191cdb68d212ad96e366e29fb9653f06"],["vendor.js","b4889f9da93ffead2522a2795e93f684"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
@@ -287,7 +287,7 @@ self.addEventListener('fetch', function(event) {
 
 toolbox.router.get(/^https:\/\/cnodejs\.org\/api\/v1/, toolbox.networkFirst, {});
 toolbox.router.get(/^https:\/\/cnodejs\.org\/public\/images\/cnodejs_light\.svg/, toolbox.cacheFirst, {});
-toolbox.router.get(/avatar/, toolbox.cacheFirst, {});
+toolbox.router.get(/avatar/, toolbox.fastest, {});
 
 
 

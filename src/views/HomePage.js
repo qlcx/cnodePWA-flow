@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import TopicsList from '../components/HomePage/TopicsList'
+import handleScrollEvent from '../components/Shared/handleScrollEvent'
+const TopicsListComponent = handleScrollEvent(TopicsList)
 
 // 分页器
 import PaginationComponent from '../components/BasicComponent/PaginationComponent'
@@ -37,7 +39,7 @@ class MainPage extends Component {
     const { state } = this.props
 
     return <div>
-      <TopicsList {...state} />
+      <TopicsListComponent {...state} />
       <div className={styles.pagination}>
         {state.topicsList.length ? <Pagination onChange={this.paginationChange} /> : null}
       </div>

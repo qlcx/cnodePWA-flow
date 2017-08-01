@@ -1,11 +1,5 @@
 import React, { Component } from 'react'
 
-const avatarStyle = {
-  width: 30,
-  height: 30,
-  marginRight: '1rem'
-}
-
 class ImgLazyLoad extends Component {
   constructor(props) {
     super(props)
@@ -14,17 +8,13 @@ class ImgLazyLoad extends Component {
   }
 
   componentDidMount() {
-    console.log(this.imgRefs)
     this.handleLazyLoad()
   }
 
-  // componentDidUpdate() {
-  //   this.handleLazyLoad()
-  // }
-
   shouldComponentUpdate(nextProps, nextState) {
-    if (this.imgRefs && !this.imgRefs.scr) {
-      console.log(this.imgRefs)
+    let isImgSrc = this.imgRefs.attributes.hasOwnProperty('src')
+
+    if (!isImgSrc) {
       this.handleLazyLoad()
       return true
     }
@@ -36,17 +26,18 @@ class ImgLazyLoad extends Component {
     const { windowHeight } = this.props
 
     if (this.imgRefs.y < windowHeight) {
-      this.imgRefs.src = this.imgRefs.attributes['data-src'].value
+      this.imgRefs.setAttribute('src', this.imgRefs.getAttribute('data-src'))
+      // 强制渲染组件
+      this.forceUpdate()
     }
   }
 
   render() {
-    const { avatar_url, loginname } = this.props
+    const { avatar_url, loginname, classname } = this.props
 
     return <img
       ref={ ref => {this.imgRefs = ref} }
-      style={avatarStyle}
-      src={null}
+      className={classname}
       data-src={avatar_url} 
       title={loginname} />
   }
