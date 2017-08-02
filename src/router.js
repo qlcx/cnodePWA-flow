@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import reduxThunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+
+import scrollToTop from './components/Shared/ScrollToTop'
 
 import Layout from './layouts/Layout'
 import HomePage from './views/HomePage'
@@ -26,12 +28,15 @@ const AppLayout = WrappedComponent => {
   }
 }
 
+const HomePageComponent = compose(scrollToTop, AppLayout)(HomePage)
+const TopicDetailsPageComponent = compose(scrollToTop, AppLayout)(TopicDetailsPage)
+
 const router = () => (
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route path='/' exact component={AppLayout(HomePage)} />
-        <Route path='/topics/:id' component={AppLayout(TopicDetailsPage)} />
+        <Route path='/' exact component={HomePageComponent} />
+        <Route path='/topics/:id' component={TopicDetailsPageComponent} />
         <Route path='/aboute' component={AppLayout(AboutePage)} />
         <Route path='/user' component={UserPage} />
         <Route component={NoRoute} />

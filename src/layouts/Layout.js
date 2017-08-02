@@ -188,7 +188,7 @@ export default class Layout extends Component {
               }
 
               return <li key={data.type}>
-                <Link to={data.link} onClick={() => this.setState({ currentType: data.type })}>
+                <Link name={'top'} to={data.link} onClick={() => this.setState({ currentType: data.type })}>
                   <i className={`iconfont ${data.icon} ${fontStyle}`} />
                   <span className={fontStyle}>{data.name}</span>
                 </Link>
