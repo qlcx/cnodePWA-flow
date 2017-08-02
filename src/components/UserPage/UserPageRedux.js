@@ -18,7 +18,7 @@ const GET_USER_INFO_LIST = 'GET_USER_INFO_LIST'         // 获取用户信息列
 // 获得用户登录状态
 export const getUserLoginSta = accessToken => {
   return dispatch => {
-    fetchData.post(`/accesstoken?accesstoken=${accessToken}`).then(res => {
+    fetchData('post', `/accesstoken?accesstoken=${accessToken}`).then(res => {
       if (res.success) {
         // 登录成功
         return dispatch({

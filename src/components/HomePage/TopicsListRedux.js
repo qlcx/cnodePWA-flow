@@ -22,7 +22,7 @@ export const getTopicsList = (params = {}) => {
     dispatch({type: SET_TABLE_LOADING_STA, sta: true})
 
     // get 列表数据
-    return fetchData.get(`/topics${reqParams}`).then(res => {
+    return fetchData('get', `/topics${reqParams}`).then(res => {
       return dispatch({
         type: GET_TOPICS_LIST,
         data: res,

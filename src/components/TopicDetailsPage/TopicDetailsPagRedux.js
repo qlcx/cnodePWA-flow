@@ -16,7 +16,7 @@ const SET_TOPICDETAILS_LOADING_STA = 'SET_TOPICDETAILS_LOADING_STA'         // è
 export const getTopicDetails = topicID => {
   return dispatch => {
     dispatch({type: SET_TOPICDETAILS_LOADING_STA, sta: true})
-    fetchData.get(`/topic/${topicID}`).then(res => {
+    fetchData('get', `/topic/${topicID}`).then(res => {
       dispatch({
         type: GET_TOPIC_DETAILS,
         topicDetails: res,
