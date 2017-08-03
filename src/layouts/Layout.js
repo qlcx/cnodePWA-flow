@@ -122,7 +122,7 @@ export default class Layout extends Component {
       let endX = event.changedTouches[0].pageX
       let moveLen = endX - this.startX
 
-      if (moveLen < -50 && moveLen >= -200) {
+      if (moveLen < -50 && moveLen >= -200 && this.startX > 20) {
         this.setState({ menuPosition: moveLen })
       } else if (moveLen > 0 && moveLen <= 200) {
         this.setState({ menuPosition: moveLen - 200 })

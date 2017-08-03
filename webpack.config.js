@@ -15,6 +15,7 @@ module.exports = {
     publicPath: '/',
   },
 
+  // 映射源码
   devtool: 'source-map',
 
   devServer: {
