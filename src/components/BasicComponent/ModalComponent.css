@@ -3,10 +3,12 @@
   z-index: 9999;
   top: 15%;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   background-color: #fff;
   border-radius: .5rem;
-  box-shadow: -2px 2px 5px rgba(0,0,0,.6);
+  -webkit-box-shadow: -2px 2px 5px rgba(0,0,0,.6);
+          box-shadow: -2px 2px 5px rgba(0,0,0,.6);
   font-size: 14px;
 }
 

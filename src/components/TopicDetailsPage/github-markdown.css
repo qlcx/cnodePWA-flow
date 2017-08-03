@@ -158,7 +158,8 @@
 }
 
 .markdown-body hr {
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   height: 0;
   overflow: visible;
 }
@@ -173,12 +174,14 @@
 }
 
 .markdown-body [type="checkbox"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
 }
 
 .markdown-body * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .markdown-body input {
@@ -402,7 +405,8 @@
   border: solid 1px #ccc;
   border-bottom-color: #bbb;
   border-radius: 3px;
-  box-shadow: inset 0 -1px 0 #bbb;
+  -webkit-box-shadow: inset 0 -1px 0 #bbb;
+          box-shadow: inset 0 -1px 0 #bbb;
 }
 
 .markdown-body h1,
@@ -540,7 +544,8 @@
 
 .markdown-body img {
   max-width: 100%;
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   background-color: #fff;
 }
 
@@ -654,7 +659,8 @@
   border: solid 1px #ccc;
   border-bottom-color: #bbb;
   border-radius: 3px;
-  box-shadow: inset 0 -1px 0 #bbb;
+  -webkit-box-shadow: inset 0 -1px 0 #bbb;
+          box-shadow: inset 0 -1px 0 #bbb;
 }
 
 .markdown-body :checked+.radio-label {

@@ -14,7 +14,8 @@ main {
   height: auto;
   width: 100%;
   color: #fff;
-  box-shadow: 2px 0 15px rgba(0,0,0,.8);
+  -webkit-box-shadow: 2px 0 15px rgba(0,0,0,.8);
+          box-shadow: 2px 0 15px rgba(0,0,0,.8);
 }
 .header-hide {
    display: none; 
@@ -22,8 +23,12 @@ main {
 
 /* logo */
 .tmTbod {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 50px;
 }
 .imgLogo {
@@ -58,6 +63,7 @@ main {
 }
 .container-topBlankHide {
   margin-top: 10px;
+  margin-bottom: 15px;
 }
 .content {
   padding: 0 5%;
@@ -80,14 +86,21 @@ main {
   padding-top: 100px;
   z-index: 100;
   background-color: #f7f7f7;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, .6);
+  -webkit-box-shadow: 2px 0 10px rgba(0, 0, 0, .6);
+          box-shadow: 2px 0 10px rgba(0, 0, 0, .6);
+
+  -webkit-transition: left .5s;
 
   transition: left .5s;
 }
 .absoluteSider > ul > li > a,
 .sider > ul > li > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 15px 20px;
   color: #424242;
   font-weight: 500;
@@ -121,8 +134,12 @@ main {
     font-size: 1.6rem;
   }
   .avatar {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     position: relative;
   }
 
@@ -140,7 +157,10 @@ main {
     padding-top: 100px;
     z-index: 100;
     background-color: #f7f7f7;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, .6);
+    -webkit-box-shadow: 2px 0 10px rgba(0, 0, 0, .6);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, .6);
+
+    -webkit-transition: left .3s;
 
     transition: left .3s;
   }

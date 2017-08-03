@@ -1,8 +1,14 @@
 .root {
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   height: 80vh;
   z-index: 10;
@@ -45,8 +51,11 @@
   position: relative;
   display: block;
 
-  animation: spinRotate 1.2s infinite;
-  animation-timing-function: linear;
+  -webkit-animation: spinRotate 1.2s infinite;
+
+          animation: spinRotate 1.2s infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
 }
 
 .spin-dot > div {
@@ -55,31 +64,52 @@
   border-radius: 50%;
   background: #108ee9;
   
-  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+  
+          animation-timing-function: linear;
 }
 .spin-dot > div:first-child {
   top: 0; left: 0;
-  animation: spinOpacity 1s infinite;
+  -webkit-animation: spinOpacity 1s infinite;
+          animation: spinOpacity 1s infinite;
 }
 .spin-dot > div:nth-child(2) {
   top: 0; right: 0;
-  animation: spinOpacity 1.5s infinite;
+  -webkit-animation: spinOpacity 1.5s infinite;
+          animation: spinOpacity 1.5s infinite;
 }
 .spin-dot > div:nth-child(3) {
   bottom: 0; right: 0;
-  animation: spinOpacity 2s infinite;
+  -webkit-animation: spinOpacity 2s infinite;
+          animation: spinOpacity 2s infinite;
 }
 .spin-dot > div:last-child {
   bottom: 0; left: 0;
-  animation: spinOpacity 2.5s infinite;
+  -webkit-animation: spinOpacity 2.5s infinite;
+          animation: spinOpacity 2.5s infinite;
+}
+
+@-webkit-keyframes spinRotate {
+  0%{ -webkit-transform:rotate(0deg); transform:rotate(0deg) }
+  25%{ -webkit-transform:rotate(90deg); transform:rotate(90deg) }
+  50%{ -webkit-transform:rotate(180deg); transform:rotate(180deg) }
+  75%{ -webkit-transform:rotate(270deg); transform:rotate(270deg) }
+  100%{ -webkit-transform:rotate(360deg); transform:rotate(360deg) }
 }
 
 @keyframes spinRotate {
-  0%{ transform:rotate(0deg) }
-  25%{ transform:rotate(90deg) }
-  50%{ transform:rotate(180deg) }
-  75%{ transform:rotate(270deg) }
-  100%{ transform:rotate(360deg) }
+  0%{ -webkit-transform:rotate(0deg); transform:rotate(0deg) }
+  25%{ -webkit-transform:rotate(90deg); transform:rotate(90deg) }
+  50%{ -webkit-transform:rotate(180deg); transform:rotate(180deg) }
+  75%{ -webkit-transform:rotate(270deg); transform:rotate(270deg) }
+  100%{ -webkit-transform:rotate(360deg); transform:rotate(360deg) }
+}
+@-webkit-keyframes spinOpacity {
+  0%{ opacity: 1 }
+  25%{ opacity: .7 }
+  50%{ opacity: .3 }
+  75%{ opacity: .8 }
+  100%{ opacity: 1 }
 }
 @keyframes spinOpacity {
   0%{ opacity: 1 }

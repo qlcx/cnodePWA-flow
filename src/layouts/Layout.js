@@ -103,13 +103,17 @@ export default class Layout extends Component {
 
   // 监听触摸结束事件
   handleTouchEnd(event) {
-    if (this.state.menuPosition <= -100) {
-      this.setState({ menuPosition: -200 })
-    } else {
-      this.setState({ 
-        menuPosition: 0,
-      })
-    }
+    this.touchEndTimer && clearTimeout(this.touchEndTimer)
+
+    this.touchEndTimer = setTimeout(() => {
+      if (this.state.menuPosition <= -100) {
+        this.setState({ menuPosition: -200 })
+      } else {
+        this.setState({ 
+          menuPosition: 0,
+        })
+      }
+    }, 100)
   }
 
   // 监听触摸移动事件
@@ -118,15 +122,23 @@ export default class Layout extends Component {
     let touchesCnt = event.changedTouches.length
 
     if (touchesCnt === 1 && typeof this.startX !== 'undefined') {
-      // 判断移动方向
-      let endX = event.changedTouches[0].pageX
-      let moveLen = endX - this.startX
+      let isStop = true
+      if (!isStop) return
+      isStop = false
 
-      if (moveLen < -50 && moveLen >= -200 && this.startX > 20) {
-        this.setState({ menuPosition: moveLen })
-      } else if (moveLen > 0 && moveLen <= 200) {
-        this.setState({ menuPosition: moveLen - 200 })
-      }
+      setTimeout(() => {
+        // 判断移动方向
+        let endX = event.changedTouches[0].pageX
+        let moveLen = endX - this.startX
+
+        if (moveLen < -30) {
+          this.setState({ menuPosition: -200 })
+        } else if (moveLen > 0 && moveLen <= 200 && this.startX < 50) {
+          this.setState({ menuPosition: moveLen - 200 })
+        }
+
+        isStop = true
+      }, 100)
     }
   }
 

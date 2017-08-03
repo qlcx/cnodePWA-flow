@@ -12,8 +12,12 @@
   border-bottom: 1px solid #E0E0E0;
 }
 .header .titleSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 1.3rem;
   padding: .5rem 0;
   margin-bottom: .8rem;

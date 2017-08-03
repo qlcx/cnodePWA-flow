@@ -5,7 +5,6 @@ import Promise from 'bluebird'
 type GetResObj = {success: string, data: any[] | any}
 type ResHttp = {data: GetResObj}
 
-// http请求前缀
 const httpPrefix: string = 'https://cnodejs.org/api/v1'
 
 export default function fetchData(method: string, url: string) {
