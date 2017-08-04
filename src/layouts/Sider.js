@@ -1,3 +1,4 @@
+//@flow
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -17,8 +18,18 @@ const topicTypes = [{
   type: 'about', icon: 'icon-guanyu', name: '关于', link: '/aboute'  
 }]
 
+type SiderProps = {
+    menuPosition: number,
+    isShowSider: boolean,
+}
+
 export default class Sider extends PureComponent {
-  constructor(props) {
+  state: {
+    currentType: string,
+  }
+  props: SiderProps
+
+  constructor(props: SiderProps) {
     super(props)
 
     this.state = {
@@ -36,14 +47,14 @@ export default class Sider extends PureComponent {
         <ul>
           {
             topicTypes.map(data => {
-              let fontStyle = undefined
+              let fontStyle: ?string = undefined
               if (data.type === this.state.currentType) {
                 fontStyle = styles.currentType
               }
 
               return <li key={data.type}>
                 <Link name={'top'} to={data.link} onClick={() => this.setState({ currentType: data.type })}>
-                  <i className={`iconfont ${data.icon} ${fontStyle}`} />
+                  <i className={typeof fontStyle === 'string' ? `iconfont ${data.icon} ${fontStyle}` : `iconfont ${data.icon}`} />
                   <span className={fontStyle}>{data.name}</span>
                 </Link>
               </li>

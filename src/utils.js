@@ -12,7 +12,7 @@ tagsMap['ask'] = '问答'
 tagsMap['top'] = '置顶'
 
 // 设置话题标签
-export const setTopicTag = (obj: {tab: string, isGood: boolean, isTop: boolean}) :string|null => {
+export const setTopicTag = (obj: {tab: string, isGood: boolean, isTop: boolean}) :?string => {
   if (obj.isTop) {
     return '置顶'
   } else if (obj.isGood) {
