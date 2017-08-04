@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import Header from './Header'
+
 import styles from './Layout.css'
 
 const topicTypes = [{
@@ -156,7 +158,7 @@ export default class Layout extends Component {
   render() {
     return (
       <main>
-        {this.renderHeader()}
+        <Header isShowheader={this.state.isShowheader} />
         
         <div className={this.state.isShowheader ? styles.container : styles['container-topBlankHide']}>
           {this.renderSider()}
@@ -165,24 +167,6 @@ export default class Layout extends Component {
           </div>
         </div>
       </main>
-    )
-  }
-
-  renderHeader() {
-    return (
-      <div className={this.state.isShowheader ? styles.header : styles['header-hide']}>
-        <div className={styles.tmTbod}>
-          <img className={styles.imgLogo} src='https://cnodejs.org/public/images/cnodejs_light.svg' />
-          <span className={styles.crumb}>全部</span>
-          <a className={styles.menu} onClick={() => this.setState({ menuPosition: 0 })}>
-            <i className='iconfont icon-menu' />
-          </a>
-        </div>
-
-        <Link className={styles.avatar} to='/user'>
-          <i className='iconfont icon-login' />
-        </Link>
-      </div>
     )
   }
 

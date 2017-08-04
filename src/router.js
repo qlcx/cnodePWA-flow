@@ -11,6 +11,7 @@ import HomePage from './views/HomePage'
 import AboutePage from './views/AboutePage'
 import UserPage from './views/UserPage'
 import TopicDetailsPage from './views/TopicDetailsPage'
+import UserInfoPage from './views/UserInfoPage'
 
 import './styles/normalize.css'
 import './styles/main.css'
@@ -39,6 +40,7 @@ const router = () => (
         <Route path='/topics/:id' component={TopicDetailsPageComponent} />
         <Route path='/aboute' component={AppLayout(AboutePage)} />
         <Route path='/user' component={UserPage} />
+        <Route path='/userInfo/:id' component={UserInfoPage} />        
         <Route component={NoRoute} />
       </Switch>
     </Router>

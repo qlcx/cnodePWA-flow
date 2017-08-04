@@ -32,13 +32,13 @@ class TopicsList extends Component {
 
   renderTopicItem(topicData, i) {
     return <li key={topicData.id} className={styles.listGroupItem}>
-      <a href='#'>
+      <Link to={`/userInfo/${topicData.author_id}`}>
         <ImgLazyLoad
           classname={styles.avatar} 
           avatar_url={topicData.author.avatar_url} 
           loginname={topicData.author.loginname}
           windowHeight={this.props.windowHeight} />
-      </a>
+      </Link>
 
       {this.renderTopicTag(topicData.tab, topicData.good, topicData.top)}
 

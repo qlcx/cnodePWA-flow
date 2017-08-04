@@ -1,0 +1,77 @@
+/* 页面头部 */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: #444;
+  line-height: 50px;
+  height: auto;
+  width: 100%;
+  color: #fff;
+  -webkit-box-shadow: 2px 0 15px rgba(0,0,0,.8);
+          box-shadow: 2px 0 15px rgba(0,0,0,.8);
+}
+.header-hide {
+   display: none; 
+}
+
+/* logo */
+.tmTbod {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+}
+.imgLogo {
+  width: 120px;
+  height: 28px;
+  padding-bottom: .5em;
+  padding-right: 24px;
+  margin-left: 30px;
+  border-right: 1px solid rgba(255, 255, 255, .5); 
+}
+.crumb {
+  padding-left: 24px;
+  font-size: 1.8rem;
+}
+.menu { display: none }
+
+/* 登录 */
+.avatar {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  /* header */
+  .tmTbod {
+    border-bottom: 1px solid rgba(255, 255, 255, .15); 
+  }
+  .imgLogo {
+    padding-right: 0;
+    border-right: none; 
+  }
+  .crumb { display: none }
+  .menu {
+    display: block;
+    position: absolute;
+    right: 30px;
+    font-size: 1.6rem;
+  }
+  .avatar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    position: relative;
+  }
+}
