@@ -6,11 +6,11 @@ import styles from './Sider.css'
 const topicTypes = [{
   type: 'all', icon: 'icon-quanbu', name: '全部', link: '/#'
 },{
-  type: 'best', icon: 'icon-huo', name: '精华', link: '/aboute1'
+  type: 'good', icon: 'icon-huo', name: '精华', link: '/aboute1'
 },{
   type: 'share', icon: 'icon-fenxiang', name: '分享', link: '/aboute'
 },{
-  type: 'answer', icon: 'icon-wenda', name: '问答', link: '/aboute'  
+  type: 'ask', icon: 'icon-wenda', name: '问答', link: '/aboute'  
 },{
   type: 'recruit', icon: 'icon-zhaopin', name: '招聘', link: '/aboute'  
 },{
