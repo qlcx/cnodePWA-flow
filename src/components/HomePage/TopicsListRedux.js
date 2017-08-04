@@ -1,4 +1,4 @@
-import fetchData from '../../utils/fetchData'
+import { fetchData } from '../../utils'
 import qs from 'qs'
 
 const initialState = {

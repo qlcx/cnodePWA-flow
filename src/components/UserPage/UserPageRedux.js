@@ -1,4 +1,4 @@
-import fetchData from '../../utils/fetchData'
+import { fetchData } from '../../utils'
 
 const initialState = {
   // 用户登录信息

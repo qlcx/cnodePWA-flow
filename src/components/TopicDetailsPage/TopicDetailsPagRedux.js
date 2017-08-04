@@ -1,4 +1,4 @@
-import fetchData from '../../utils/fetchData'
+import { fetchData } from '../../utils'
 
 const initialState = {
   // 话题详情

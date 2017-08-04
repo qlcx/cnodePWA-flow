@@ -6,7 +6,7 @@ import SpinnerComponent from '../BasicComponent/SpinnerComponent'
 import ImgLazyLoad from '../Shared/ImgLazyLoad'
 import styles from './TopicsList.css'
 
-import * as utils from '../../utils'
+import { setTopicTag } from '../../utils'
 
 class TopicsList extends Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class TopicsList extends Component {
 
   // 渲染话题标签
   renderTopicTag(tab, isGood, isTop) {
-    let tag = utils.setTopicTag({tab, isGood, isTop})
+    let tag = setTopicTag({tab, isGood, isTop})
 
     let tagClasses = `${styles.topicTag} `
     // 显示置顶&精华标签
