@@ -1,0 +1,61 @@
+/* 侧边栏 */
+.currentType { color: #80bd01 }
+.sider {
+  position: fixed;
+  width: 200px;
+  float: left;
+}
+.absoluteSider {
+  position: fixed;
+  height: 100%;
+  width: 200px;
+  top: 0;
+  left: -200px;
+  padding-top: 100px;
+  z-index: 100;
+  background-color: #f7f7f7;
+  -webkit-box-shadow: 2px 0 10px rgba(0, 0, 0, .6);
+          box-shadow: 2px 0 10px rgba(0, 0, 0, .6);
+
+  -webkit-transition: left .5s;
+
+  transition: left .5s;
+}
+.sider > ul > li > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 20px;
+  color: #424242;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+.sider > ul > li > a > i {
+  font-size: 2.4rem;
+  margin-right: 20px;
+}
+
+@media (max-width: 840px) {
+  .sider { width: 120px; }
+}
+
+@media (max-width: 600px) {
+  .sider {
+    top: 0;
+    left: -200px;
+    height: 100%;
+    width: 200px;
+    padding-top: 100px;
+    z-index: 100;
+    background-color: #f7f7f7;
+    -webkit-box-shadow: 2px 0 10px rgba(0, 0, 0, .6);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, .6);
+
+    -webkit-transition: left .3s;
+
+    transition: left .3s;
+  }
+}

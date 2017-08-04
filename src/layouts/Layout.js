@@ -2,29 +2,14 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import Header from './Header'
+import Sider from './Sider'
 
 import styles from './Layout.css'
-
-const topicTypes = [{
-  type: 'all', icon: 'icon-quanbu', name: '全部', link: '/#'
-},{
-  type: 'best', icon: 'icon-huo', name: '精华', link: '/aboute1'
-},{
-  type: 'share', icon: 'icon-fenxiang', name: '分享', link: '/aboute'
-},{
-  type: 'answer', icon: 'icon-wenda', name: '问答', link: '/aboute'  
-},{
-  type: 'recruit', icon: 'icon-zhaopin', name: '招聘', link: '/aboute'  
-},{
-  type: 'about', icon: 'icon-guanyu', name: '关于', link: '/aboute'  
-}]
 
 export default class Layout extends Component {
   constructor(props) {
     super(props)
 
-    // 渲染func
-    this.renderSider = this.renderSider.bind(this)
     // 事件监听
     this.handleMouseDown = this.handleMouseDown.bind(this)
     this.handleTouchStart = this.handleTouchStart.bind(this)
@@ -34,10 +19,9 @@ export default class Layout extends Component {
     this.handleScroll = this.handleScroll.bind(this)
 
     this.state = {
-      currentType: 'all',
       menuPosition: -200,
       isShowSider: window.innerWidth <= 600 ? false : true,
-      isShowheader: true,
+      isShowHeader: true,
     }
   }
 
@@ -73,7 +57,7 @@ export default class Layout extends Component {
       }
 
       if (this.scrollDirection && this.prevScrollDirection !== this.scrollDirection) {
-        this.setState({ isShowheader: this.scrollDirection === 'up' ? true : false })
+        this.setState({ isShowHeader: this.scrollDirection === 'up' ? true : false })
       }
 
       this.prevScrollDirection = this.scrollDirection
@@ -88,7 +72,7 @@ export default class Layout extends Component {
     } else {
       this.setState({ 
         isShowSider: true,
-        isShowheader: true,
+        isShowHeader: true,
       })
     }
   }
@@ -158,41 +142,17 @@ export default class Layout extends Component {
   render() {
     return (
       <main>
-        <Header isShowheader={this.state.isShowheader} />
+        <Header isShowHeader={this.state.isShowHeader} />
         
-        <div className={this.state.isShowheader ? styles.container : styles['container-topBlankHide']}>
-          {this.renderSider()}
+        <div className={this.state.isShowHeader ? styles.container : styles['container-topBlankHide']}>
+          <Sider 
+            isShowSider={this.state.isShowSider}
+            menuPosition={this.state.menuPosition} />
           <div className={styles.content}>
             {this.props.children}
           </div>
         </div>
       </main>
-    )
-  }
-
-  renderSider() {
-    return (
-      <div 
-        style={this.state.isShowSider ? undefined : {left: this.state.menuPosition}}
-        className={styles.sider}>
-        <ul>
-          {
-            topicTypes.map(data => {
-              let fontStyle = undefined
-              if (data.type === this.state.currentType) {
-                fontStyle = styles.currentType
-              }
-
-              return <li key={data.type}>
-                <Link name={'top'} to={data.link} onClick={() => this.setState({ currentType: data.type })}>
-                  <i className={`iconfont ${data.icon} ${fontStyle}`} />
-                  <span className={fontStyle}>{data.name}</span>
-                </Link>
-              </li>
-            })
-          }
-        </ul>
-      </div>
     )
   }
 }
