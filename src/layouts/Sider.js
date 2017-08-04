@@ -48,6 +48,7 @@ export default class Sider extends PureComponent {
           {
             topicTypes.map(data => {
               let fontStyle: ?string = undefined
+
               if (data.type === this.state.currentType) {
                 fontStyle = styles.currentType
               }
