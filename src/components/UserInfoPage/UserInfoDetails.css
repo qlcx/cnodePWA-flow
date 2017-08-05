@@ -67,3 +67,6 @@
 .about span {
   padding: .2rem 0;
 }
+.about span a {
+  color: #F5F5F5;
+}

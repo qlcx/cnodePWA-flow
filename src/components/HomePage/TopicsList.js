@@ -23,7 +23,7 @@ class TopicsList extends Component {
       <ul className={styles.listGroup}>
         {topicTitle && <li className={`${styles.listGroupItem} ${styles.listTopicTitle}`}>{topicTitle}</li>}
         {
-          topicsList.map((data, i) => {
+          topicsList && topicsList.map((data, i) => {
             return this.renderTopicItem(data, i)
           })
         }

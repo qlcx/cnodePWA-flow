@@ -46,7 +46,7 @@ class UserInfoPage extends Component {
       <div style={styles.recent}>
         <TopicsListComponent
           topicTitle='最近创建的话题' 
-          topicsList={recentTopics.length > 6 ? recentTopics.slice(0, 6) : recentTopics} 
+          topicsList={recentTopics && recentTopics.length > 6 ? recentTopics.slice(0, 6) : recentTopics} 
           tableLoading={false} />
       </div>
       <div style={styles.recent}>
