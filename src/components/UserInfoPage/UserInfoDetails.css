@@ -1,0 +1,69 @@
+.root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 40vh;
+  width: 100%;
+  background-color: #546E7A;
+  border-radius: .3rem;
+   -webkit-box-shadow: -2px 2px 4px rgba(0,0,0,.5);
+           box-shadow: -2px 2px 4px rgba(0,0,0,.5);
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 1.5rem;
+  width: 100%;
+  height: 34%;
+  min-height: 90px;
+}
+/* 用户信息 */
+.userInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/* 头像 */
+.userInfo .avatar {
+  width: 50px;
+  height: 50px;
+  margin-right: 1.2rem;
+  border-radius: 32px;
+  border: 1px solid #F5F5F5;
+}
+.userInfo .loginName {
+  color: #F5F5F5;
+  font-size: 2.4rem;
+  margin-left: 1.2rem;
+}
+
+/* 关于 */
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 80%; 
+  color: #F5F5F5;
+  font-size: 1.4rem;
+}
+.about span {
+  padding: .2rem 0;
+}

@@ -31,6 +31,7 @@ const AppLayout = WrappedComponent => {
 
 const HomePageComponent = compose(scrollToTop, AppLayout)(HomePage)
 const TopicDetailsPageComponent = compose(scrollToTop, AppLayout)(TopicDetailsPage)
+const UserInfoPageComponent = compose(scrollToTop, AppLayout)(UserInfoPage)
 
 const router = () => (
   <Provider store={store}>
@@ -40,7 +41,7 @@ const router = () => (
         <Route path='/topics/:id' component={TopicDetailsPageComponent} />
         <Route path='/aboute' component={AppLayout(AboutePage)} />
         <Route path='/user' component={UserPage} />
-        <Route path='/userInfo/:id' component={UserInfoPage} />        
+        <Route path='/userInfo/:id' component={UserInfoPageComponent} />        
         <Route component={NoRoute} />
       </Switch>
     </Router>

@@ -32,7 +32,7 @@ class TopicsList extends Component {
 
   renderTopicItem(topicData, i) {
     return <li key={topicData.id} className={styles.listGroupItem}>
-      <Link to={`/userInfo/${topicData.author_id}`}>
+      <Link to={`/userInfo/${topicData.author.loginname}`}>
         <ImgLazyLoad
           classname={styles.avatar} 
           avatar_url={topicData.author.avatar_url} 
