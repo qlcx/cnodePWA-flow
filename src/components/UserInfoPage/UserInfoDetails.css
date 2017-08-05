@@ -36,16 +36,15 @@
 }
 /* 头像 */
 .userInfo .avatar {
-  width: 50px;
-  height: 50px;
-  margin-right: 1.2rem;
-  border-radius: 32px;
+  width: 51px;
+  height: 51px;
+  margin-right: 2.4rem;
+  border-radius: 26px;
   border: 1px solid #F5F5F5;
 }
 .userInfo .loginName {
   color: #F5F5F5;
   font-size: 2.4rem;
-  margin-left: 1.2rem;
 }
 
 /* 关于 */
@@ -76,4 +75,68 @@
 .about span a i {
   margin-right: .2rem;
   margin-top: 1px;
+}
+
+@media (max-width: 600px) {
+  .root {
+    position: relative;
+    height: 75vh;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .bg {
+    position: absolute;
+    z-index: 9;
+    bottom: 0;
+    left: 0;
+    height: calc(75px + 9rem);
+    width: 100%;
+    background-color: #e1e1e1;
+  }
+  .header {
+    position: absolute;
+    z-index: 10;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 0;
+    height: auto;
+  }
+  /* 用户信息 */
+  .userInfo {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .userInfo .avatar {
+    margin: 0;
+    width: 66px;
+    height: 66px;
+    border-radius: 34px; 
+  }
+  .userInfo .loginName {
+    margin: 2rem 0;
+    color: #313131;
+  }
+
+
+  /* 关于 */
+  .about {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .about span {
+    padding: .3rem 0;
+    color: #616161;
+  }
+  .about span a {
+    color: #616161;
+  }
 }

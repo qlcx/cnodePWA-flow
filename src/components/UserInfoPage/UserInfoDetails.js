@@ -11,6 +11,7 @@ export default class UserInfoDetails extends PureComponent {
     }
 
     return <div className={styles.root}>
+      <div className={styles.bg} />
       <div className={styles.header}>
         <div className={styles.userInfo}>
           <img
