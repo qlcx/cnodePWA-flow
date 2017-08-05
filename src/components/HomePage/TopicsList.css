@@ -17,6 +17,11 @@
   color: #292b2c;
   border-radius: .25rem;
 }
+.listTopicTitle {
+  background-color: #F5F5F5;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
 .listGroupItem {
   display: -webkit-box;
   display: -ms-flexbox;

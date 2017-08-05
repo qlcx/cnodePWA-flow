@@ -4,8 +4,17 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import UserInfoDetails from '../components/UserInfoPage/UserInfoDetails'
+import TopicsList from '../components/HomePage/TopicsList' 
+import handleScrollEvent from '../components/Shared/handleScrollEvent'
+const TopicsListComponent = handleScrollEvent(TopicsList)
 
 import { actions } from './UserInfoPageRedux'
+
+const styles = {
+  recent: {
+    marginTop: '2rem',
+  },
+}
 
 class UserInfoPage extends Component {  
   componentDidMount() {
@@ -34,6 +43,18 @@ class UserInfoPage extends Component {
 
     return <div>
       <UserInfoDetails userInfoDetailsProps={userInfoDetailsProps} />
+      <div style={styles.recent}>
+        <TopicsListComponent
+          topicTitle='最近创建的话题' 
+          topicsList={recentTopics.length > 6 ? recentTopics.slice(0, 6) : recentTopics} 
+          tableLoading={false} />
+      </div>
+      <div style={styles.recent}>
+        <TopicsListComponent
+          topicTitle='最近参与的话题' 
+          topicsList={recentReplies} 
+          tableLoading={false} />
+      </div>
     </div>
   }
 }

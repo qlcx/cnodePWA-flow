@@ -60,7 +60,7 @@
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  width: 80%; 
+  width: 100%; 
   color: #F5F5F5;
   font-size: 1.4rem;
 }

@@ -16,11 +16,12 @@ class TopicsList extends Component {
   }
 
   render() {
-    const { topicsList, tableLoading } = this.props
+    const { topicsList, tableLoading, topicTitle } = this.props
 
     return <div className={styles.root}>
       {tableLoading ? <SpinnerComponent /> : null}
       <ul className={styles.listGroup}>
+        {topicTitle && <li className={`${styles.listGroupItem} ${styles.listTopicTitle}`}>{topicTitle}</li>}
         {
           topicsList.map((data, i) => {
             return this.renderTopicItem(data, i)
