@@ -24,6 +24,7 @@ export default class UserInfoDetails extends PureComponent {
           <span>{`积分：${userInfoDetailsProps.score}`}</span>
           <span>
             <a target='_Blank' href={`https://github.com/${userInfoDetailsProps.githubUsername}`}>
+              <i className='iconfont icon-github' />
               {`github: ${userInfoDetailsProps.githubUsername}`}
             </a>
           </span>

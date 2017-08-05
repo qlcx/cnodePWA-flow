@@ -43,6 +43,7 @@ li {
 .icon-guanyu {
   width: 24px;
 }
+.icon-skip:before { content: "\e604"; }
 .icon-login:before { content: "\e60d"; }
 .icon-fenxiang:before { content: "\e611"; }
 .icon-guanyu:before { content: "\e659"; }
@@ -52,3 +53,4 @@ li {
 .icon-wenda:before { content: "\e808"; }
 .icon-huo:before { content: "\e64e"; }
 .icon-quanbu:before { content: "\e61b"; }
+.icon-github:before { content: "\e601"; }

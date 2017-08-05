@@ -68,5 +68,12 @@
   padding: .2rem 0;
 }
 .about span a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   color: #F5F5F5;
+}
+.about span a i {
+  margin-right: .2rem;
+  margin-top: 1px;
 }
