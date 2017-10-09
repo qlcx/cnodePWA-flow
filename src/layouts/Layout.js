@@ -49,7 +49,7 @@ export default class Layout extends Component {
     this.handleScroll = this.handleScroll.bind(this)
 
     this.state = {
-      menuPosition: -200,
+      menuPosition: -210,
       isShowSider: window.innerWidth <= 600 ? false : true,
       isShowHeader: true,
     }
