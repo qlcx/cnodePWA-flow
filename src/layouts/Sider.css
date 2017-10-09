@@ -10,7 +10,7 @@
   height: 100%;
   width: 200px;
   top: 0;
-  left: -200px;
+  left: -210px;
   padding-top: 100px;
   z-index: 100;
   background-color: #f7f7f7;
@@ -45,7 +45,7 @@
 @media (max-width: 600px) {
   .sider {
     top: 0;
-    left: -200px;
+    left: -210px;
     height: 100%;
     width: 200px;
     padding-top: 100px;

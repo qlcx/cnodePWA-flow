@@ -123,7 +123,7 @@ export default class Layout extends Component {
 
     this.touchEndTimer = setTimeout(() => {
       if (this.state.menuPosition <= -100) {
-        this.setState({ menuPosition: -200 })
+        this.setState({ menuPosition: -210 })
       } else {
         this.setState({ 
           menuPosition: 0,
@@ -148,7 +148,7 @@ export default class Layout extends Component {
         let moveLen: number = endX - this.startX
 
         if (moveLen < -30) {
-          this.setState({ menuPosition: -200 })
+          this.setState({ menuPosition: -210 })
         } else if (moveLen > 0 && moveLen <= 200 && this.startX < 50) {
           this.setState({ menuPosition: moveLen - 200 })
         }
@@ -165,7 +165,7 @@ export default class Layout extends Component {
     let x: number = e.pageX || e.clientX + scrollX
 
     if (x > 200) {
-      this.setState({ menuPosition: -200 })
+      this.setState({ menuPosition: -210 })
     }
   }
 
