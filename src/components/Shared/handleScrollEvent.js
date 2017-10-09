@@ -41,7 +41,7 @@ function handleScrollEvent(WrappedComponent) {
 
       setTimeout(() => {
         // 距离页面顶部高度
-        let onScrollTop = document.body.scrollTop
+        let onScrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop
 
         if (this.prevScrollPos < onScrollTop) {
           // loading图片
