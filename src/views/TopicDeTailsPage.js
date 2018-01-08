@@ -31,7 +31,6 @@ class TopicDetailsPage extends Component {
     const { state } = this.props
     const { topicDetails } = this.props.state
     const authorName = topicDetails.author ? topicDetails.author.loginname : ''
-    const tag = (topicDetails.good || topicDetails.top) && setTopicTag({tab: topicDetails.tab, isGood: topicDetails.good, isTop: topicDetails.top})
 
     const topicParams = {
       header: {
@@ -41,8 +40,6 @@ class TopicDetailsPage extends Component {
         createTime: topicDetails.create_at,
         // 作者
         authorName: authorName,
-        // 标签
-        tag: tag,
         // 访问数
         visitNum: topicDetails.visit_count,
       },

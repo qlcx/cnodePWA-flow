@@ -13,10 +13,7 @@ export default class TopicInfo extends Component {
     return <article>
        <div className={styles.header}>
         <div className={styles.titleSection}>
-          <span className={styles.tag}>{header.tag}</span>
-          <span 
-            style={header.tag ? {marginLeft: 8} : null}
-            className={styles.title}>
+          <span className={styles.title}>
             {header.title}
           </span>
         </div>
