@@ -178,7 +178,8 @@ export default class Layout extends Component {
       <main>
         <Header 
           isShowHeader={this.state.isShowHeader}
-          handleMenuEvent={() => this.setState({ menuPosition: 0 })} />
+          handleMenuEvent={() => this.setState({ menuPosition: 0 })}
+          currentPath={currentPath} />
         
         <div className={this.state.isShowHeader ? styles.container : styles['container-topBlankHide']}>
           <Sider

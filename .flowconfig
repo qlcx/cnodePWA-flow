@@ -5,4 +5,4 @@
 [libs]
 ./lib
 [options]
-module.name_mapper='.*\(.s?css\)' -> 'empty/object'
+module.name_mapper='.*\(.css\)' -> 'empty/object'

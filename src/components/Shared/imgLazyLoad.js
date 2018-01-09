@@ -38,8 +38,10 @@ class ImgLazyLoad extends Component {
     return <img
       ref={ ref => {this.imgRefs = ref} }
       className={classname}
+      style={{backgroundColor: '#F5F5F5'}}
       data-src={avatar_url} 
-      title={loginname} />;
+      title={loginname}
+      alt='' />;
   }
 }
 
