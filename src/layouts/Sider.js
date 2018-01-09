@@ -47,10 +47,10 @@ export default class Sider extends PureComponent {
         <ul>
           {
             topicTypes.map(data => {
-              let fontStyle: ?string = undefined
+              let fontStyle: ?string = undefined;
 
               if (data.type === this.state.currentType) {
-                fontStyle = styles.currentType
+                fontStyle = styles.currentType;
               }
 
               return <li key={data.type}>
@@ -58,7 +58,7 @@ export default class Sider extends PureComponent {
                   <i className={typeof fontStyle === 'string' ? `iconfont ${data.icon} ${fontStyle}` : `iconfont ${data.icon}`} />
                   <span className={fontStyle}>{data.name}</span>
                 </Link>
-              </li>
+              </li>;
             })
           }
         </ul>
