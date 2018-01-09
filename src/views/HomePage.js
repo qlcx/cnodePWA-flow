@@ -14,6 +14,8 @@ const Pagination = paginationDecorator(PaginationComponent);
 import { actions } from './HomePageReudx';
 import styles from './HomePage.css';
 
+import axios from 'axios';
+
 class MainPage extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +28,10 @@ class MainPage extends Component {
     const param = extra ? extra : {};
     // 获取话题列表
     actions.getTopicsList(param);
+
+    axios.get('https://cnodejs.org/setting').then(res => {
+      console.log(res.data)
+    })
   }
 
   // 切换页

@@ -1,20 +1,20 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import QRReaderPage from '../components/UserPage/QRReaderPage'
+import QRReaderPage from '../components/UserPage/QRReaderPage';
 
-import { actions } from './UserPageRedux'
+import { actions } from './UserPageRedux';
 
 class UserPage extends Component {
   render() {
-    const { state, actions } = this.props
+    const { state, actions } = this.props;
 
     if (state.isUserLogin) {
-      return <div> user login info </div>
+      return <div> user login info </div>;
     }
 
-    return <QRReaderPage {...actions} modalVisible={state.modalVisible} />
+    return <QRReaderPage {...actions} modalVisible={state.modalVisible} />;
   }
 }
 
@@ -25,4 +25,4 @@ export default connect(
   dispatch => ({
     actions: bindActionCreators(actions, dispatch)
   })
-)(UserPage)
+)(UserPage);
