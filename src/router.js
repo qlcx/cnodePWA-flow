@@ -25,9 +25,11 @@ const store = createStoreWithMiddleware(reducer);
 const AppLayout = (WrappedComponent, ...rest) => {
   return class AppLayout extends Component {
     render() {
-      return <Layout><WrappedComponent extra={{...rest[0]}}/></Layout>;
+      return <Layout match={this.props.match}>
+        <WrappedComponent extra={{...rest[0]}}/>
+      </Layout>;
     }
-  };;
+  };
 };
 
 const HomePageComponent = compose(scrollToTop, AppLayout);

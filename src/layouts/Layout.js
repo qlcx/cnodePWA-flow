@@ -10,6 +10,8 @@ import styles from './Layout.css';
 
 type LayoutProps = {
   children: Children,
+  // react-router current path
+  match: any,
 };
 
 export default class Layout extends Component {
@@ -170,6 +172,7 @@ export default class Layout extends Component {
   }
 
   render() {
+
     return (
       <main>
         <Header 
@@ -179,7 +182,8 @@ export default class Layout extends Component {
         <div className={this.state.isShowHeader ? styles.container : styles['container-topBlankHide']}>
           <Sider 
             isShowSider={this.state.isShowSider}
-            menuPosition={this.state.menuPosition} />
+            menuPosition={this.state.menuPosition}
+            currentPath={this.props.match.path} />
           <div className={styles.content}>
             {this.props.children}
           </div>
