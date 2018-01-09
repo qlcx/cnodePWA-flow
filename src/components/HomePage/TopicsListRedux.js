@@ -1,14 +1,14 @@
-import { fetchData } from '../../utils'
-import qs from 'qs'
+import { fetchData } from '../../utils';
+import qs from 'qs';
 
 const initialState = {
   topicsList: [],           // 话题列表
   tableLoading: false,
-}
+};
 
 // actions
-const GET_TOPICS_LIST = 'GET_TOPICS_LIST'                     // 获取话题列表
-const SET_TABLE_LOADING_STA = 'SET_TABLE_LOADING_STA'         // 设置表格加载状态
+const GET_TOPICS_LIST = 'GET_TOPICS_LIST';                     // 获取话题列表
+const SET_TABLE_LOADING_STA = 'SET_TABLE_LOADING_STA';         // 设置表格加载状态
 
 // 获得话题列表数据
 export const getTopicsList = (params = {}) => {

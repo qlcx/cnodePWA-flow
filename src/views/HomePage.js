@@ -1,49 +1,49 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import TopicsList from '../components/HomePage/TopicsList'
-import handleScrollEvent from '../components/Shared/handleScrollEvent'
-const TopicsListComponent = handleScrollEvent(TopicsList)
+import TopicsList from '../components/HomePage/TopicsList';
+import handleScrollEvent from '../components/Shared/handleScrollEvent';
+const TopicsListComponent = handleScrollEvent(TopicsList);
 
 // 分页器
-import PaginationComponent from '../components/BasicComponent/PaginationComponent'
-import paginationDecorator from '../components/Shared/PaginationDecorator'
-const Pagination = paginationDecorator(PaginationComponent)
+import PaginationComponent from '../components/BasicComponent/PaginationComponent';
+import paginationDecorator from '../components/Shared/PaginationDecorator';
+const Pagination = paginationDecorator(PaginationComponent);
 
-import { actions } from './HomePageReudx'
-import styles from './HomePage.css'
+import { actions } from './HomePageReudx';
+import styles from './HomePage.css';
 
 class MainPage extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.paginationChange = this.paginationChange.bind(this)
+    this.paginationChange = this.paginationChange.bind(this);
   }
 
   componentWillMount() {
-    const { actions } = this.props
-    
-    // 获取主题首页列表
-    actions.getTopicsList()
+    const { actions, extra } = this.props;
+    const param = extra ? extra : {};
+    // 获取话题列表
+    actions.getTopicsList(param);
   }
 
   // 切换页
   paginationChange(pageNum) {
-    const { actions } = this.props
+    const { actions } = this.props;
 
-    actions.getTopicsList({page: pageNum})
+    actions.getTopicsList({page: pageNum});
   }
   
   render() {
-    const { state } = this.props
+    const { state } = this.props;
 
     return <div>
       <TopicsListComponent {...state} />
       <div className={styles.pagination}>
         {state.topicsList.length ? <Pagination onChange={this.paginationChange} /> : null}
       </div>
-    </div>
+    </div>;
   }
 }
 
@@ -54,4 +54,4 @@ export default connect(
   dispatch => ({
     actions: bindActionCreators(actions, dispatch)
   })
-)(MainPage)
+)(MainPage);

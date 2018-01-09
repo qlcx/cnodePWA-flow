@@ -1,46 +1,46 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class ImgLazyLoad extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.handleLazyLoad = this.handleLazyLoad.bind(this)
+    this.handleLazyLoad = this.handleLazyLoad.bind(this);
   }
 
   componentDidMount() {
-    this.handleLazyLoad()
+    this.handleLazyLoad();
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    let isImgSrc = this.imgRefs.attributes.hasOwnProperty('src')
+    let isImgSrc = this.imgRefs.attributes.hasOwnProperty('src');
 
     if (!isImgSrc) {
-      this.handleLazyLoad()
-      return true
+      this.handleLazyLoad();
+      return true;
     }
 
-    return false
+    return false;
   }
 
   handleLazyLoad() {
-    const { windowHeight } = this.props
+    const { windowHeight } = this.props;
 
     if (this.imgRefs.y < windowHeight) {
-      this.imgRefs.setAttribute('src', this.imgRefs.getAttribute('data-src'))
+      this.imgRefs.setAttribute('src', this.imgRefs.getAttribute('data-src'));
       // 强制渲染组件
-      this.forceUpdate()
+      this.forceUpdate();
     }
   }
 
   render() {
-    const { avatar_url, loginname, classname } = this.props
+    const { avatar_url, loginname, classname } = this.props;
 
     return <img
       ref={ ref => {this.imgRefs = ref} }
       className={classname}
       data-src={avatar_url} 
-      title={loginname} />
+      title={loginname} />;
   }
 }
 
-export default ImgLazyLoad
+export default ImgLazyLoad;

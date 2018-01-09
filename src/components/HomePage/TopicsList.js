@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import moment from 'moment'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import moment from 'moment';
+import { Link } from 'react-router-dom';
 
-import SpinnerComponent from '../BasicComponent/SpinnerComponent'
-import ImgLazyLoad from '../Shared/ImgLazyLoad'
-import styles from './TopicsList.css'
+import SpinnerComponent from '../BasicComponent/SpinnerComponent';
+import ImgLazyLoad from '../Shared/ImgLazyLoad';
+import styles from './TopicsList.css';
 
-import { setTopicTag } from '../../utils'
+import { setTopicTag } from '../../utils';
 
 class TopicsList extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.renderTopicItem = this.renderTopicItem.bind(this)
+    this.renderTopicItem = this.renderTopicItem.bind(this);
   }
 
   render() {
-    const { topicsList, tableLoading, topicTitle } = this.props
+    const { topicsList, tableLoading, topicTitle } = this.props;
 
     return <div className={styles.root}>
       {tableLoading ? <SpinnerComponent /> : null}
@@ -28,7 +28,7 @@ class TopicsList extends Component {
           })
         }
       </ul>
-    </div>
+    </div>;
   }
 
   renderTopicItem(topicData, i) {
@@ -50,24 +50,24 @@ class TopicsList extends Component {
       <span className={styles.topicLastReply}>
         {moment(topicData.last_reply_at).fromNow()}
       </span>
-    </li>
+    </li>;
   }
 
   // 渲染话题标签
   renderTopicTag(tab, isGood, isTop) {
-    let tag = setTopicTag({tab, isGood, isTop})
+    let tag = setTopicTag({tab, isGood, isTop});
 
-    let tagClasses = `${styles.topicTag} `
+    let tagClasses = `${styles.topicTag} `;
     // 显示置顶&精华标签
     if (isTop || isGood) {
-      tagClasses += `${styles.topicTagToporGood}`
+      tagClasses += `${styles.topicTagToporGood}`;
     }
 
     // 如果没有标签数据则不显示
-    if (!tab) return <span />
+    if (!tab || !tag) return <span />;
 
-    return <span className={tagClasses}>{tag}</span>
+    return <span className={tagClasses}>{tag}</span>;
   }
 }
 
-export default TopicsList
+export default TopicsList;

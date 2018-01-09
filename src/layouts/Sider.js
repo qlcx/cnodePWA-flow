@@ -1,44 +1,44 @@
 //@flow
-import React, { PureComponent } from 'react'
-import { Link } from 'react-router-dom'
+import React, { PureComponent } from 'react';
+import { Link } from 'react-router-dom';
 
-import styles from './Sider.css'
+import styles from './Sider.css';
 
 const topicTypes = [{
   type: 'all', icon: 'icon-quanbu', name: '全部', link: '/#'
 },{
-  type: 'good', icon: 'icon-huo', name: '精华', link: '/aboute1'
+  type: 'good', icon: 'icon-huo', name: '精华', link: '/goodtopics'
 },{
-  type: 'share', icon: 'icon-fenxiang', name: '分享', link: '/aboute'
+  type: 'share', icon: 'icon-fenxiang', name: '分享', link: '/sharetopics'
 },{
-  type: 'ask', icon: 'icon-wenda', name: '问答', link: '/aboute'  
+  type: 'ask', icon: 'icon-wenda', name: '问答', link: '/asktopics'  
 },{
-  type: 'recruit', icon: 'icon-zhaopin', name: '招聘', link: '/aboute'  
+  type: 'recruit', icon: 'icon-zhaopin', name: '招聘', link: '/jobtopics'  
 },{
   type: 'about', icon: 'icon-guanyu', name: '关于', link: '/aboute'  
-}]
+}];
 
 type SiderProps = {
     menuPosition: number,
     isShowSider: boolean,
-}
+};
 
 export default class Sider extends PureComponent {
   state: {
     currentType: string,
-  }
-  props: SiderProps
+  };
+  props: SiderProps;
 
   constructor(props: SiderProps) {
-    super(props)
+    super(props);
 
     this.state = {
       currentType: 'all',
-    }
+    };
   }
 
   render() {
-    const { menuPosition, isShowSider } = this.props
+    const { menuPosition, isShowSider } = this.props;
 
     return (
       <div 
@@ -63,6 +63,6 @@ export default class Sider extends PureComponent {
           }
         </ul>
       </div>
-    )
+    );
   }
-}
+};
