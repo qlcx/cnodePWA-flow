@@ -172,6 +172,7 @@ export default class Layout extends Component {
   }
 
   render() {
+    const currentPath: string = this.props.match.path;
 
     return (
       <main>
@@ -180,10 +181,10 @@ export default class Layout extends Component {
           handleMenuEvent={() => this.setState({ menuPosition: 0 })} />
         
         <div className={this.state.isShowHeader ? styles.container : styles['container-topBlankHide']}>
-          <Sider 
+          <Sider
             isShowSider={this.state.isShowSider}
             menuPosition={this.state.menuPosition}
-            currentPath={this.props.match.path} />
+            currentPath={currentPath} />
           <div className={styles.content}>
             {this.props.children}
           </div>

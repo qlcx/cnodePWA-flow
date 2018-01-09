@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styles from './Sider.css';
 
 const topicTypes = [{
-  type: 'all', icon: 'icon-quanbu', name: '全部', link: '/#'
+  type: 'all', icon: 'icon-quanbu', name: '全部', link: '/'
 },{
   type: 'good', icon: 'icon-huo', name: '精华', link: '/goodtopics'
 },{
@@ -21,24 +21,14 @@ const topicTypes = [{
 type SiderProps = {
     menuPosition: number,
     isShowSider: boolean,
+    currentPath: string,
 };
 
 export default class Sider extends PureComponent {
-  state: {
-    currentType: string,
-  };
   props: SiderProps;
 
-  constructor(props: SiderProps) {
-    super(props);
-
-    this.state = {
-      currentType: 'all',
-    };
-  }
-
   render() {
-    const { menuPosition, isShowSider } = this.props;
+    const { menuPosition, isShowSider, currentPath } = this.props;
 
     return (
       <div 
@@ -48,13 +38,10 @@ export default class Sider extends PureComponent {
           {
             topicTypes.map(data => {
               let fontStyle: ?string = undefined;
-
-              if (data.type === this.state.currentType) {
-                fontStyle = styles.currentType;
-              }
+              if (data.link === currentPath) fontStyle = styles.currentType;
 
               return <li key={data.type}>
-                <Link name={'top'} to={data.link} onClick={() => this.setState({ currentType: data.type })}>
+                <Link name={'top'} to={data.link}>
                   <i className={typeof fontStyle === 'string' ? `iconfont ${data.icon} ${fontStyle}` : `iconfont ${data.icon}`} />
                   <span className={fontStyle}>{data.name}</span>
                 </Link>
