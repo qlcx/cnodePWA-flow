@@ -1,0 +1,39 @@
+.pannel {
+  display: flex;
+  align-items: center; justify-content: center;
+  padding: 2rem 1rem;
+  border-radius: 3px;
+  background-color: #fff; box-shadow: -2px 2px 10px #000;
+  font-size: 1.5rem; font-weight: 400; color: #000;
+}
+
+.pannel label {
+  display: inline-block;
+  margin-left: 1rem;
+  font-size: 1.4rem;
+}
+.pannel form { width: 90% }
+.pannel form > div:nth-child(2) { margin-top: 2rem }
+.pannel form > div:last-child { 
+  margin: 3rem 0 0 1rem;
+}
+.pannel input {
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  background-color: #EEEEEE;
+  line-height: 2em;
+  padding-left: .5em;
+  width: 65%;
+}
+.pannel button {
+  font-size: 1.5rem; color: #fff;
+  border-radius: 3px;
+  padding: .5em 1em;
+  background-color: #80bd01;
+}
+.pannel a {
+  color: #80bd01;
+  font-size: 1.3rem;
+  float: right;
+  line-height: 2.5;
+}

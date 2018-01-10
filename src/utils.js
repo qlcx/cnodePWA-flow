@@ -25,7 +25,6 @@ export const setTopicTag = (obj: {tab: string, isGood: boolean, isTop: boolean})
 }
 
 /**************** http请求 *****************/
-
 type GetResObj = {success: string, data: any[] | any};
 type ResHttp = {data: GetResObj};
 

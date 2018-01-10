@@ -2,8 +2,8 @@
 import { fetchData } from '../../utils'
 
 type State = {
-  +userInfo: any,
-  +fetchLoading: boolean
+  userInfo: any,
+  fetchLoading: boolean
 }
 
 const initialState: State = {

@@ -13,7 +13,6 @@ const initialState = {
 // actions
 const SET_USER_MODAL_STA = 'SET_USER_MODAL_STA'         // 设置用户modal状态
 const GET_USER_LOGIN_STA = 'GET_USER_LOGIN_STA'         // 获取用户登录状态
-const GET_USER_INFO_LIST = 'GET_USER_INFO_LIST'         // 获取用户信息列表
 
 // 获得用户登录状态
 export const getUserLoginSta = accessToken => {
