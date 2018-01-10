@@ -11,6 +11,7 @@ export default class LoginPage extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.handleInputName = this.handleInputName.bind(this);
     this.handleInputPwd = this.handleInputPwd.bind(this);
+    this.handleQRReader = this.handleQRReader.bind(this);
 
     this.state = {
       pwd: '',
@@ -63,6 +64,10 @@ export default class LoginPage extends Component {
     this.setState({pwd: e.target.value});
   }
 
+  handleQRReader(e) {
+    this.props.switchToQRReader(true);
+  }
+
   render() {
     const windowWidth = window.innerWidth || document.body.clientWidth || document.documentElement.clientWidth;
     const windowHeight = window.innerHeight || document.body.clientHeight || document.documentElement.clientHeight;
@@ -80,7 +85,7 @@ export default class LoginPage extends Component {
           </div>
           <div>
             <button type='submit'>登陆</button>
-            <a href='#'>扫码登陆</a>
+            <a onClick={this.handleQRReader}>扫码登陆</a>
           </div>
         </form>
       </div>

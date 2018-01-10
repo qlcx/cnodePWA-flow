@@ -11,11 +11,14 @@ import styles from './UserPage.css';
 class UserPage extends Component {
   render() {
     const { state, actions } = this.props;
-
-    if (state.isUserLogin) {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
       return <div> user login info </div>;
     }
-    // return <QRReaderPage {...actions} modalVisible={state.modalVisible} />;
+
+    if (state.isSwitchQRReader) {
+      return <QRReaderPage {...actions} modalVisible={state.modalVisible} />;
+    }
 
     return <div className={styles.content}>
       <LoginPage {...actions} />

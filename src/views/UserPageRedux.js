@@ -3,6 +3,7 @@ import { combineReducers } from 'redux'
 import userPageReducer, {
   setUserModalSta,
   getUserLoginSta,
+  switchToQRReader,
 } from '../components/UserPage/UserPageRedux'
 
 export default combineReducers({
@@ -12,4 +13,5 @@ export default combineReducers({
 export const actions = {
   getUserLoginSta,
   setUserModalSta,
+  switchToQRReader
 }
