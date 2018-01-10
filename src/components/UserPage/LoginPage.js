@@ -13,8 +13,8 @@ export default class LoginPage extends Component {
     this.handleInputPwd = this.handleInputPwd.bind(this);
 
     this.state = {
-      pwd: undefined,
-      name: undefined,
+      pwd: '',
+      name: '',
     };
   }
   
@@ -68,9 +68,7 @@ export default class LoginPage extends Component {
     const windowHeight = window.innerHeight || document.body.clientHeight || document.documentElement.clientHeight;
 
     return (
-      <div 
-        className={styles.pannel} 
-        style={{height: windowHeight / 4, width: windowWidth / 2.5}}>
+      <div className={styles.pannel}>
         <form onSubmit={this.onSubmit}>
           <div>
             <label>用户名：</label>
